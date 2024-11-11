@@ -63,7 +63,8 @@
           },
           "ScrollSpeed": 1000,
           "SongFile": "songs/yairi - setsuna imitation (feat. yurica, hanatan) .vsnd",
-          "SpawnPosition": "1024,-64,32"
+          "SpawnDistance": 1024,
+          "StartLine": 64
         }
       ]
     }

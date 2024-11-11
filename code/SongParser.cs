@@ -7,19 +7,24 @@ public sealed class SongParser : Component
 	[Property] float ScrollSpeed { get; set; } = 300;
 	[Property] GameObject NotePrefab { get; set; }
 	[Property] SoundFile SongFile { get; set; }
-	[Property] Vector3 SpawnPosition { get; set; }
+	[Property] float SpawnDistance { get; set; } = 1024;
+	[Property] float StartLine { get; set; } = 64;
 	Song songData { get; set; }
 	SongInfo songInfo { get; set; }
 	TimeSince timeSinceStart { get; set; }
+	Vector3 SpawnPosition { get; set; }
+	int BPM { get; set; }
 	int noteCount { get; set; } = 0;
 	float timeToReach { get; set; }
 	protected override void OnStart()
 	{
 		timeSinceStart = 0;
+		SpawnPosition = new Vector3( SpawnDistance, -48, 32 );
 
 		//parse data
 		songData = Song.Read();
 		songInfo = SongInfo.Read();
+		BPM = songInfo._beatsPerMinute;
 
 		//create sound event and play song
 		SoundEvent songAudio = new( SongFile.ResourcePath );
@@ -28,10 +33,9 @@ public sealed class SongParser : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		var currentBeat = timeSinceStart.Relative * songInfo._beatsPerMinute / 60;
-		Log.Info(currentBeat);
+		var currentBeat = timeSinceStart.Relative * BPM / 60;
 		Note currentNote = songData._notes[noteCount];
-		timeToReach = Vector3.DistanceBetween( SpawnPosition, new Vector3( 0, 0, 0 ) ) / ScrollSpeed;
+		timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithY( StartLine ) ) / ScrollSpeed * BPM / 60;
 		if( currentBeat >= currentNote._time - timeToReach )
 		{
 			var no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * 32, currentNote._lineLayer * 32 ) );
