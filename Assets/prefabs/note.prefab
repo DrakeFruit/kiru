@@ -1,0 +1,93 @@
+{
+  "RootObject": {
+    "__guid": "09d74fd4-f9ba-4ac9-9891-48f191911d0d",
+    "Flags": 0,
+    "Name": "note",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "NoteComponent",
+        "__guid": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
+        "LeftNoteColor": "0,0.93333,1,1",
+        "model": {
+          "_type": "component",
+          "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
+          "go": "18743f20-4864-44ff-a49f-fdc032242af2",
+          "component_type": "ModelRenderer"
+        },
+        "NoteSpeed": 300,
+        "RightNoteColor": "1,0,0,1"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "18743f20-4864-44ff-a49f-fdc032242af2",
+        "Flags": 0,
+        "Name": "Model",
+        "Scale": "0.5,0.5,0.5",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ea391dc1-cc00-4658-b223-127f36895197",
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialOverride": "materials/glow.vmat",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
+    "__variables": [
+      {
+        "Id": "Note Speed",
+        "Title": "Note Speed",
+        "Targets": [
+          {
+            "Id": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
+            "Property": "NoteSpeed"
+          }
+        ]
+      }
+    ],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [
+    "drakefruit.glow#75696"
+  ],
+  "__version": 1
+}
