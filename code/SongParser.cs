@@ -19,7 +19,7 @@ public sealed class SongParser : Component
 	protected override void OnStart()
 	{
 		timeSinceStart = 0;
-		SpawnPosition = new Vector3( SpawnDistance, -48, 32 );
+		SpawnPosition = new Vector3( SpawnDistance, 48, 32 );
 
 		//parse data
 		songData = Song.Read();
@@ -38,7 +38,8 @@ public sealed class SongParser : Component
 		timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithY( StartLine ) ) / ScrollSpeed * BPM / 60;
 		if( currentBeat >= currentNote._time - timeToReach )
 		{
-			var no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * 32, currentNote._lineLayer * 32 ) );
+			//Spawn note prefab, set position, and pass note data
+			var no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -32, currentNote._lineLayer * 32 ) );
 			NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
 			co.noteData = currentNote;
 			co.NoteSpeed = ScrollSpeed;
