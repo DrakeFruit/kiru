@@ -61,7 +61,7 @@
             "_type": "gameobject",
             "prefab": "prefabs/note.prefab"
           },
-          "ScrollSpeed": 1000,
+          "ScrollSpeed": 1500,
           "SongFile": "songs/yairi - setsuna imitation (feat. yurica, hanatan) .vsnd",
           "SpawnDistance": 1024,
           "StartLine": 64

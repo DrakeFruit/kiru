@@ -8,7 +8,7 @@
       {
         "__type": "NoteComponent",
         "__guid": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
-        "LeftNoteColor": "0.5098,0,0.78431,1",
+        "LeftNoteColor": "0.65,0,1,1",
         "Model": {
           "_type": "component",
           "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
