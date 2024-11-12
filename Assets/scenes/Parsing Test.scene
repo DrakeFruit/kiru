@@ -51,18 +51,21 @@
     {
       "__guid": "e531282d-9ba1-41e7-b9f0-3c76ca05fa3d",
       "Flags": 0,
-      "Name": "Map Parser",
+      "Name": "Song Parser",
       "Enabled": true,
       "Components": [
         {
-          "__type": "SongParser",
-          "__guid": "0e1427f5-a818-4b26-bcf5-e4ef0d9887e6",
+          "__type": "Kiru.SongDownloader",
+          "__guid": "6608d756-549d-425a-bb29-d6e127607106"
+        },
+        {
+          "__type": "Kiru.SongParser",
+          "__guid": "0001f807-dd19-4363-81e5-8322ebabfa26",
           "NotePrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/note.prefab"
           },
           "ScrollSpeed": 1500,
-          "SongFile": "songs/yairi - setsuna imitation (feat. yurica, hanatan) .vsnd",
           "SpawnDistance": 1024,
           "StartLine": 64
         }

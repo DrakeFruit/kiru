@@ -1,26 +1,28 @@
 using System;
 using Sandbox;
 
+namespace Kiru;
 public sealed class NoteComponent : Component
 {
 	[Property] public Color LeftNoteColor { get; set; }
 	[Property] public Color RightNoteColor { get; set; }
-	[Property]public ModelRenderer Model { get; set; }
-	public Note noteData { get; set; }
+	[Property] public ModelRenderer Model { get; set; }
+	public Song.Note noteData { get; set; }
 	public float NoteSpeed { get; set; } = 300f;
 	
 	protected override void OnStart()
 	{
-		//Apply note color
+		// Apply note color
 		if( noteData._type == 0 ) Model.Tint = LeftNoteColor;
 		else Model.Tint = RightNoteColor;
-		//Apply note rotation
+		// Apply note rotation
 		int rot = ToRotation(noteData._cutDirection);
 		LocalRotation = new Angles( 0, 0, rot );
 	}
 	protected override void OnFixedUpdate()
 	{
 		LocalPosition += Vector3.Backward * NoteSpeed * Time.Delta;
+		if ( LocalPosition.x <= -64 ) GameObject.Destroy();
 	}
 
 	private static int ToRotation(float cutDirection) => cutDirection switch
@@ -31,8 +33,8 @@ public sealed class NoteComponent : Component
 		3 => 90,
 		4 => -45,
 		5 => 45,
-		6 => -135, // was -145
-		7 => 135,  // was 145
+		6 => -145,
+		7 => 145,
 		_ => throw new ArgumentOutOfRangeException(nameof(cutDirection), cutDirection, null),
 	};
 }
