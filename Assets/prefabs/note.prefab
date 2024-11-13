@@ -6,7 +6,7 @@
     "Enabled": true,
     "Components": [
       {
-        "__type": "NoteComponent",
+        "__type": "Kiru.NoteComponent",
         "__guid": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
         "LeftNoteColor": "0.65,0,1,1",
         "Model": {

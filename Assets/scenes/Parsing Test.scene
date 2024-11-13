@@ -55,12 +55,8 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Kiru.SongDownloader",
-          "__guid": "6608d756-549d-425a-bb29-d6e127607106"
-        },
-        {
           "__type": "Kiru.SongParser",
-          "__guid": "0001f807-dd19-4363-81e5-8322ebabfa26",
+          "__guid": "2d4c29dd-1fd3-4633-9348-d625bf6ddb67",
           "NotePrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/note.prefab"
@@ -68,6 +64,11 @@
           "ScrollSpeed": 1500,
           "SpawnDistance": 1024,
           "StartLine": 64
+        },
+        {
+          "__type": "Kiru.SongDownloader",
+          "__guid": "4ef54835-f31b-49b8-9202-334d0cf2406a",
+          "mapId": "419d4"
         }
       ]
     }

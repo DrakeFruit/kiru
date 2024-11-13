@@ -15,7 +15,6 @@ public sealed class SongParser : Component
 	float timeToReach { get; set; }
 	protected override void OnStart()
 	{
-		timeSinceStart = 0;
 		SpawnPosition = new Vector3( SpawnDistance, 48, 32 );
 	}
 	protected override void OnFixedUpdate()
@@ -37,14 +36,15 @@ public sealed class SongParser : Component
 			}
 		}
 	}
-	public void PlaySong(Song SongData, SongInfo songInfo, SoundFile SongFile)
+	public void PlaySong(Song data, SongInfo info, SoundFile audio)
 	{
-
-		//parse data
-		BPM = songInfo.metadata.bpm;
+		timeSinceStart = 0;
+		BPM = songInfo._beatsPerMinute;
+		songData = data;
+		songInfo = info;
 
 		//create sound event and play song
-		SoundEvent songAudio = new( SongFile.ResourcePath );
+		SoundEvent songAudio = new( audio.ResourcePath );
 		songAudio.UI = true;
 		Sound.Play( songAudio );
 
