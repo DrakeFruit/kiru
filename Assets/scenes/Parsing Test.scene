@@ -51,7 +51,9 @@
     {
       "__guid": "e531282d-9ba1-41e7-b9f0-3c76ca05fa3d",
       "Flags": 0,
-      "Name": "Song Parser",
+      "Name": "Song Browser",
+      "Position": "80,0.000009655967,73.80191",
+      "Rotation": "0,-0,-1,-0.00000004371139",
       "Enabled": true,
       "Components": [
         {
@@ -67,8 +69,20 @@
         },
         {
           "__type": "Kiru.SongDownloader",
-          "__guid": "4ef54835-f31b-49b8-9202-334d0cf2406a",
-          "mapId": "419d4"
+          "__guid": "4ef54835-f31b-49b8-9202-334d0cf2406a"
+        },
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "f6af5652-3357-4beb-ae09-86c45ec0dbf8",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.SongBrowser",
+          "__guid": "7820ac24-99c6-4a1a-9305-0c3e7144c83c"
         }
       ]
     }

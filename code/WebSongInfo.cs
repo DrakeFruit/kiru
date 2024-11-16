@@ -1,5 +1,4 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Kiru;
 public class WebSongInfo
@@ -93,7 +92,15 @@ public class WebSongInfo
             }
         }
     }
-
+    public class SearchResults
+    {
+	    public List<WebSongInfo> docs { get; set; }
+    }
+    
+    public static SearchResults ReadList( string JsonAsString )
+    {
+	    return JsonSerializer.Deserialize<SearchResults>( JsonAsString );
+    }
     public static WebSongInfo Read( string JsonAsString )
 	{
 		return JsonSerializer.Deserialize<WebSongInfo>( JsonAsString );

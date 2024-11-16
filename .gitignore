@@ -22,7 +22,7 @@ code/Properties/*
 *launchSettings.json
 *.sln
 
-*idea
+*.idea
 
 # Exported / standalone games
 Exports/

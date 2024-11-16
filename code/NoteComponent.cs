@@ -7,7 +7,7 @@ public sealed class NoteComponent : Component
 	[Property] public Color LeftNoteColor { get; set; }
 	[Property] public Color RightNoteColor { get; set; }
 	[Property] public ModelRenderer Model { get; set; }
-	public Song.Note noteData { get; set; }
+	public SongChart.Note noteData { get; set; }
 	public float NoteSpeed { get; set; } = 300f;
 	
 	protected override void OnStart()

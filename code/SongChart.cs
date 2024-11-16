@@ -1,7 +1,7 @@
 using System.Text.Json;
 
 namespace Kiru;
-public class Song
+public class SongChart
 {
 	public string _version { get; set; }
 	public List<float> _BPMChanges { get; set; }
@@ -34,8 +34,8 @@ public class Song
     	public int _width { get; set; }
     }
 
-    public static Song Read( string JsonAsString )
+    public static SongChart Read( string JsonAsString )
 	{
-		return JsonSerializer.Deserialize<Song>( JsonAsString );
+		return JsonSerializer.Deserialize<SongChart>( JsonAsString );
 	}
 }

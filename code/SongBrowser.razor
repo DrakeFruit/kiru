@@ -1,0 +1,37 @@
+@using Kiru
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div>
+		<TextEntry class="SearchBar" @ref=" Query"/>
+		<div class="Button" onclick=@( () => Downloader.GetSearchResults( Query.Text ) )>Search</div>
+	</div>
+	
+	<div class="SongList">
+		@foreach ( var i in Downloader.Results.docs )
+		{
+			<SearchEntry>@i.name</SearchEntry>
+		}
+	</div>
+</root>
+
+@code
+{
+	SongDownloader Downloader { get; set;  }
+	TextEntry Query { get; set; }
+	protected override void OnStart()
+	{
+		Downloader = Components.GetInChildrenOrSelf<SongDownloader>();
+	}
+	//SongDownloader.DownloadSong();
+	//parser.PlaySong(song, songInfo, audio);
+	//WebSongInfo webSongInfo = searchResults.docs.First();
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	//protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+}
