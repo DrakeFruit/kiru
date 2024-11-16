@@ -11,20 +11,25 @@
 	</div>
 	
 	<div class="SongList">
-		@foreach ( var i in Downloader.Results.docs )
+		@if ( Downloader.Results != null )
 		{
-			<SearchEntry>@i.name</SearchEntry>
+			@foreach ( var i in Downloader.Results.docs )
+			{
+				<SearchEntry WebInfo=@i Downloader=@Downloader/>
+			}
 		}
 	</div>
 </root>
 
 @code
 {
-	SongDownloader Downloader { get; set;  }
+	SongDownloader Downloader { get; set; }
+	List<WebSongInfo> Results { get; set; }
 	TextEntry Query { get; set; }
 	protected override void OnStart()
 	{
 		Downloader = Components.GetInChildrenOrSelf<SongDownloader>();
+		//Results = Downloader.Results.docs;
 	}
 	//SongDownloader.DownloadSong();
 	//parser.PlaySong(song, songInfo, audio);

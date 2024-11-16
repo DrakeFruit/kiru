@@ -6,13 +6,20 @@
 @attribute [StyleSheet]
 
 <root onclick=@( () => PlaySong() )>
-	
+	<div class="title">@WebInfo.name</div>
 </root>
 
 @code
 {
+	public WebSongInfo WebInfo { get; set; }
+	public SongDownloader Downloader { get; set; }
+	public SongParser Parser { get; set; }
 	public void PlaySong()
 	{
+		Downloader.WebInfo = WebInfo;
+		Downloader.DownloadSong();
 		
+		Parser = Downloader.Parser;
+		Parser.PlaySong(Downloader.Chart, Downloader.Info, Downloader.AudioPath);
 	}
 }

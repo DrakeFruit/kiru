@@ -65,10 +65,22 @@ public sealed class SongDownloader : Component
 				Log.Error("Error downloading song " + e.Message);
 			}
 		}
-        
+
+		var diffSelection = WebInfo.versions.First().diffs.Last();
         Info = SongInfo.Read( FileSystem.Data.ReadAllText( SongFolder + "/Info.json" ) );
-        string songFilePath = SongFolder + "/" + WebInfo.versions.First().diffs.Last().difficulty + WebInfo.versions.First().diffs.Last().characteristic;
-        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
+        string songFilePath = SongFolder + "/" + diffSelection.difficulty;
+        
+        // There has to be a better way to do this, don't do this
+        try { Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) ); }
+        catch
+        {
+	        try
+	        {
+		        songFilePath += diffSelection.characteristic;
+		        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
+	        }
+	        catch {Log.Info("Chart does not exist");}
+        }
         AudioPath =  SongFolder + "/" +  FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
 	}
 }
