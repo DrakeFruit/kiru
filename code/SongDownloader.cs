@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Kiru;
 public sealed class SongDownloader : Component
@@ -38,7 +39,7 @@ public sealed class SongDownloader : Component
 			Results = WebSongInfo.ReadList( response );
 		}
 	}
-	public async void DownloadSong()
+	public async Task DownloadSong()
 	{
 		SongFolder = $"songs/{WebInfo.name}";
 		if ( !FileSystem.Data.DirectoryExists( SongFolder ) )
@@ -86,7 +87,13 @@ public sealed class SongDownloader : Component
 		        songFilePath += diffSelection.characteristic;
 		        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
 	        }
-	        catch {Log.Info("Chart does not exist");}
+	        catch {Log.Warning("Chart does not exist");}
+        }
+
+        if ( Chart._notes == null )
+        {
+	        Log.Warning("Chart uses custom song data, not yet supported");
+	        return;
         }
         AudioPath =  SongFolder + "/" +  FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
 	}

@@ -15,12 +15,12 @@
 	public WebSongInfo WebInfo { get; set; }
 	public SongDownloader Downloader { get; set; }
 	public SongParser Parser { get; set; }
-	public void PlaySong()
+	public async void PlaySong()
 	{
 		Downloader.WebInfo = WebInfo;
-		Downloader.DownloadSong();
+		await Downloader.DownloadSong();
 		
 		Parser = Downloader.Parser;
-		Parser.PlaySong(Downloader.Chart, Downloader.Info, Downloader.AudioPath);
+		if( Downloader.Chart._notes != null && Downloader.Info._songName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
 	}
 }

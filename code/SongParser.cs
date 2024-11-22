@@ -1,35 +1,39 @@
+using Sandbox.Audio;
+
 namespace Kiru;
 public sealed class SongParser : Component
 {
-	[Property] float ScrollSpeed { get; set; } = 1500;
+	[Property] public float ScrollSpeed { get; set; } = 1500;
 	[Property] GameObject NotePrefab { get; set; }
-	[Property] float SpawnDistance { get; set; } = 1024;
+	[Property] public float SpawnDistance { get; set; } = 1024;
 	[Property] private GameObject StartLine { get; set; }
+	[Property] public Color LeftNoteColor { get; set; } = Color.Red;
+	[Property] public Color RightNoteColor { get; set; } = Color.Cyan;
+	[RequireComponent] SongBrowser browser { get; set; }
 	SongChart SongChartData { get; set; }
 	SongInfo songInfo { get; set; }
 	MusicPlayer musicPlayer { get; set; }
 	TimeSince timeSinceStart { get; set; }
-	private float timeSince { get; set; } = 0;
 	Vector3 SpawnPosition { get; set; }
 	bool IsSongPlaying { get; set; }
 	int noteCount { get; set; } = 0;
-	float BPM { get; set; }
-	float timeToReach { get; set; }
+	public float BPM { get; set; }
+	public float timeToReach { get; set; } = 0;
 	protected override void OnStart()
 	{
-		SpawnPosition = new Vector3( SpawnDistance, 48, 32 );
+		SpawnPosition = new Vector3( SpawnDistance, 22, 40 );
 	}
 	protected override void OnFixedUpdate()
 	{
 		if( IsSongPlaying )
 		{
-			float currentBeat = timeSinceStart.Relative * BPM / 60;
-			SongChart.Note currentNote = SongChartData._notes[noteCount];
-			timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithX( StartLine.LocalPosition.x ) ) / ScrollSpeed * BPM / 60;
+			var currentBeat = timeSinceStart.Relative * BPM / 60;
+			var currentNote = SongChartData._notes[noteCount];
+			timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithX( StartLine.WorldPosition.x ) ) / ScrollSpeed * BPM / 60;
 			if( currentBeat >= currentNote._time - timeToReach )
 			{
 				//Spawn note prefab, set position, and pass note data
-				GameObject no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -32, currentNote._lineLayer * 32 ) );
+				GameObject no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -16, currentNote._lineLayer * 16 ) );
 				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;
@@ -40,35 +44,16 @@ public sealed class SongParser : Component
 	}
 	public void PlaySong(SongChart data, SongInfo info, string audio)
 	{
+		browser.Enabled = false;
 		SongChartData = data;
 		songInfo = info;
-		timeSinceStart = timeSince;
+		timeSinceStart = 0;
 		BPM = songInfo._beatsPerMinute;
 
 		// Play song using this shit music player
 		musicPlayer = MusicPlayer.Play( FileSystem.Data, audio );
+		musicPlayer.ListenLocal = true;
 
-		IsSongPlaying = true;
-	}
-
-	public void Stop()
-	{
-		timeSince = timeSinceStart;
-		musicPlayer.Stop();
-		IsSongPlaying = false;
-	}
-
-	public void Pause()
-	{
-		timeSince = timeSinceStart;
-		musicPlayer.Paused = true;
-		IsSongPlaying = false;
-	}
-
-	public void Unpause()
-	{
-		timeSinceStart = timeSince;
-		musicPlayer.Paused = false;
 		IsSongPlaying = true;
 	}
 }

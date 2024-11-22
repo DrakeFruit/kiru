@@ -3,6 +3,7 @@
     "__guid": "09d74fd4-f9ba-4ac9-9891-48f191911d0d",
     "Flags": 0,
     "Name": "note",
+    "Tags": "note",
     "Enabled": true,
     "Components": [
       {
@@ -16,6 +17,15 @@
           "component_type": "ModelRenderer"
         },
         "RightNoteColor": "0,1,0.70196,1"
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "b28a5d08-193b-437d-a2a3-6423950597bd",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Scale": "16,16,16",
+        "Static": false,
+        "SurfaceVelocity": "0,0,0"
       }
     ],
     "Children": [
@@ -23,7 +33,7 @@
         "__guid": "18743f20-4864-44ff-a49f-fdc032242af2",
         "Flags": 0,
         "Name": "Model",
-        "Scale": "0.5,0.5,0.5",
+        "Scale": "0.25,0.25,0.25",
         "Enabled": true,
         "Components": [
           {
@@ -48,7 +58,7 @@
             "Flags": 0,
             "Name": "Box",
             "Position": "-24,0,-12",
-            "Scale": "2,2,2",
+            "Scale": "4,4,4",
             "Enabled": true,
             "Components": [
               {
@@ -61,14 +71,14 @@
                 "Mesh": {
                   "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
                   "Positions": [
-                    "-2,-10,0",
-                    "1,-10,0",
-                    "1,10,0",
-                    "-2,10,0",
-                    "-2,10,-4",
-                    "1,10,-4",
-                    "1,-10,-4",
-                    "-2,-10,-4"
+                    "-1,-5,0",
+                    "0.5,-5,0",
+                    "0.5,5,0",
+                    "-1,5,0",
+                    "-1,5,-2",
+                    "0.5,5,-2",
+                    "0.5,-5,-2",
+                    "-1,-5,-2"
                   ],
                   "TextureCoord": [
                     "-38,20",
@@ -113,12 +123,12 @@
                     "1,0,-0"
                   ],
                   "TextureScale": [
-                    "0.1249998,0.125",
-                    "0.125,0.125",
-                    "0.125,0.125",
-                    "0.125,0.125",
-                    "0.125,0.125",
-                    "0.125,0.125"
+                    "0.06249988,0.0625",
+                    "0.0625,0.0625",
+                    "0.06249999,0.0625",
+                    "0.06249999,0.0625",
+                    "0.06249999,0.0625",
+                    "0.06249999,0.0625"
                   ],
                   "TextureOffset": [
                     "0.0001678467,0",
@@ -180,6 +190,9 @@
       {
         "Id": "Note Speed",
         "Title": "Note Speed",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
         "Targets": [
           {
             "Id": "1916a09a-7e33-45cc-a8d0-c98815167c0b",

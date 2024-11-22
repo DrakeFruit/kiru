@@ -4,20 +4,24 @@ using Sandbox;
 namespace Kiru;
 public sealed class NoteComponent : Component
 {
-	[Property] public Color LeftNoteColor { get; set; }
-	[Property] public Color RightNoteColor { get; set; }
 	[Property] public ModelRenderer Model { get; set; }
+	public SongParser Parser { get; set; }
 	public SongChart.Note noteData { get; set; }
+	public int Angle { get; set; }
 	public float NoteSpeed { get; set; } = 300f;
-	
 	protected override void OnStart()
 	{
+		Parser = Scene.GetComponentInChildren<SongParser>();
 		// Apply note color
-		if( noteData._type == 0 ) Model.Tint = LeftNoteColor;
-		else Model.Tint = RightNoteColor;
+		if( noteData._type == 0 ) Model.Tint = Parser.LeftNoteColor;
+		else Model.Tint = Parser.RightNoteColor;
 		// Apply note rotation
-		int rot = ToRotation(noteData._cutDirection);
-		LocalRotation = new Angles( 0, 0, rot );
+		if ( noteData._cutDirection != 8 )
+		{
+			Angle = ToRotation( noteData._cutDirection );
+		}
+		else Angle = 0;
+		LocalRotation = new Angles( 0, 0, Angle );
 	}
 	protected override void OnFixedUpdate()
 	{

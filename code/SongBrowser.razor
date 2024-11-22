@@ -6,11 +6,8 @@
 
 <root>
 	<div class="Buttons">
-		<TextEntry class="SearchBar" onsubmit=@( () => Downloader.GetSearchResults( Query.Text ) ) @ref=Query/>
+		<TextEntry class="SearchBar" onsubmit=@( () => Downloader.GetSearchResults( Query.Text ) ) @ref=Query />
 		<div class="Button" onclick=@( () => Downloader.GetSearchResults( Query.Text ) )>Search</div>
-		<div class="Button" onclick=@( () => Downloader.Parser.Stop() )>Stop</div>
-		<div class="Button" onclick=@( () => Downloader.Parser.Pause() )>Pause</div>
-		<div class="Button" onclick=@( () => Downloader.Parser.Unpause() )>Unpause</div>
 	</div>
 	
 	<div class="SongList">
@@ -30,6 +27,7 @@
 	TextEntry Query { get; set; }
 	protected override void OnStart()
 	{
+		//Mouse.Visible = true;
 		Downloader = Components.GetInChildrenOrSelf<SongDownloader>();
 	}
 
