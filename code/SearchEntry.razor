@@ -5,8 +5,9 @@
 @namespace Sandbox
 @attribute [StyleSheet]
 
-<root onclick=@( () => PlaySong() )>
-	<div class="title">@WebInfo.name</div>
+<root class="SearchEntry" onclick=@( () => PlaySong() )>
+	<div class="Title">@WebInfo.name</div>
+	<div class="CheckBox">Check</div>
 </root>
 
 @code

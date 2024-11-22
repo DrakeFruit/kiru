@@ -1,14 +1,17 @@
 SongBrowser
 {
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	justify-content: center;
-	align-items: center;
+	top: 5%;
+	left: 20%;
+	right: 25%;
+	bottom: auto;
+	justify-content: left;
 	font-weight: bold;
+	color: white;
+	background-color: slategray;
 	border-radius: 20px;
+	padding: .5%;
+	font-size: 25px;
 	pointer-events: all;
 	font-family: Poppins;
 	flex-direction: column;
@@ -22,16 +25,19 @@ SongBrowser
 	{
 		
 	}
+	.Buttons
+	{
+		
+	}
 	.SongList
 	{
 		flex-direction: column;
+        min-height: 30%;
+		min-width: 50%;
 	}
-	.Button, .SongList, .SearchBar
+	.Button, .SearchBar
 	{
-		color: white;
-		background-color: slategray;
-		border-radius: 20px;
-		padding: .5%;
-		font-size: 25px;
+		background-color: darkgray;
+		border-radius: 10px;
 	}
 }

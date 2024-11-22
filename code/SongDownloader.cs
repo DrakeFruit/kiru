@@ -11,16 +11,22 @@ public sealed class SongDownloader : Component
 	public WebSongInfo WebInfo { get; set; }
 	public SongChart Chart { get; set; }
 	public SongInfo Info { get; set; }
+	public List<string> InstalledSongs { get; set; } = new List<string>();
 	public string SongFolder;
 	public string AudioPath;
 	protected override void OnStart()
 	{
 		Parser = Components.GetInChildrenOrSelf<SongParser>();
+		foreach ( var i in FileSystem.Data.FindDirectory( "songs" ) )
+		{
+			InstalledSongs.Add( i );
+		}
 	}
 	public async void GetSearchResults( string Query )
 	{
 		string page = "0";
-		string Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder=Rating";
+		string SortOrder = "Relevance";
+		string Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder={SortOrder}";
 		string response = await Http.RequestStringAsync( Url );
 		Results = WebSongInfo.ReadList( response );
 		// I have no fucking clue how pages work, just check the next page if 0 is empty?
@@ -65,9 +71,10 @@ public sealed class SongDownloader : Component
 				Log.Error("Error downloading song " + e.Message);
 			}
 		}
-
+		
 		var diffSelection = WebInfo.versions.First().diffs.Last();
         Info = SongInfo.Read( FileSystem.Data.ReadAllText( SongFolder + "/Info.json" ) );
+        InstalledSongs.Add(Info._songName);
         string songFilePath = SongFolder + "/" + diffSelection.difficulty;
         
         // There has to be a better way to do this, don't do this

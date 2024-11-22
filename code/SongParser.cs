@@ -4,10 +4,12 @@ public sealed class SongParser : Component
 	[Property] float ScrollSpeed { get; set; } = 1500;
 	[Property] GameObject NotePrefab { get; set; }
 	[Property] float SpawnDistance { get; set; } = 1024;
-	[Property] float StartLine { get; set; } = 64;
+	[Property] private GameObject StartLine { get; set; }
 	SongChart SongChartData { get; set; }
 	SongInfo songInfo { get; set; }
+	MusicPlayer musicPlayer { get; set; }
 	TimeSince timeSinceStart { get; set; }
+	private float timeSince { get; set; } = 0;
 	Vector3 SpawnPosition { get; set; }
 	bool IsSongPlaying { get; set; }
 	int noteCount { get; set; } = 0;
@@ -23,7 +25,7 @@ public sealed class SongParser : Component
 		{
 			float currentBeat = timeSinceStart.Relative * BPM / 60;
 			SongChart.Note currentNote = SongChartData._notes[noteCount];
-			timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithY( StartLine ) ) / ScrollSpeed * BPM / 60;
+			timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithX( StartLine.LocalPosition.x ) ) / ScrollSpeed * BPM / 60;
 			if( currentBeat >= currentNote._time - timeToReach )
 			{
 				//Spawn note prefab, set position, and pass note data
@@ -40,12 +42,33 @@ public sealed class SongParser : Component
 	{
 		SongChartData = data;
 		songInfo = info;
-		timeSinceStart = 0;
+		timeSinceStart = timeSince;
 		BPM = songInfo._beatsPerMinute;
 
 		// Play song using this shit music player
-		MusicPlayer.Play( FileSystem.Data, audio );
+		musicPlayer = MusicPlayer.Play( FileSystem.Data, audio );
 
+		IsSongPlaying = true;
+	}
+
+	public void Stop()
+	{
+		timeSince = timeSinceStart;
+		musicPlayer.Stop();
+		IsSongPlaying = false;
+	}
+
+	public void Pause()
+	{
+		timeSince = timeSinceStart;
+		musicPlayer.Paused = true;
+		IsSongPlaying = false;
+	}
+
+	public void Unpause()
+	{
+		timeSinceStart = timeSince;
+		musicPlayer.Paused = false;
 		IsSongPlaying = true;
 	}
 }
