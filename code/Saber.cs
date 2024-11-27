@@ -19,7 +19,7 @@ public sealed class Saber : Component
 			if ( i.Tags.Has( "note" ) )
 			{
 				var note = i.GetComponent<NoteComponent>();
-				switch ( note.noteData._type )
+				switch ( note.noteData?._type )
 				{
 					case 0 when LeftHand:
 						i.DestroyGameObject();

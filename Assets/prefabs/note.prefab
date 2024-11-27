@@ -9,14 +9,12 @@
       {
         "__type": "Kiru.NoteComponent",
         "__guid": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
-        "LeftNoteColor": "0.65,0,1,1",
         "Model": {
           "_type": "component",
           "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
           "go": "18743f20-4864-44ff-a49f-fdc032242af2",
           "component_type": "ModelRenderer"
-        },
-        "RightNoteColor": "0,1,0.70196,1"
+        }
       },
       {
         "__type": "Sandbox.BoxCollider",
@@ -33,7 +31,7 @@
         "__guid": "18743f20-4864-44ff-a49f-fdc032242af2",
         "Flags": 0,
         "Name": "Model",
-        "Scale": "0.25,0.25,0.25",
+        "Scale": "0.35,0.35,0.35",
         "Enabled": true,
         "Components": [
           {
@@ -58,7 +56,7 @@
             "Flags": 0,
             "Name": "Box",
             "Position": "-24,0,-12",
-            "Scale": "4,4,4",
+            "Scale": "2.857143,2.857143,2.857143",
             "Enabled": true,
             "Components": [
               {
@@ -71,14 +69,14 @@
                 "Mesh": {
                   "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
                   "Positions": [
-                    "-1,-5,0",
-                    "0.5,-5,0",
-                    "0.5,5,0",
-                    "-1,5,0",
-                    "-1,5,-2",
-                    "0.5,5,-2",
-                    "0.5,-5,-2",
-                    "-1,-5,-2"
+                    "-1.4,-7,0",
+                    "0.7,-7,0",
+                    "0.7,7,0",
+                    "-1.4,7,0",
+                    "-1.4,7,-2.8",
+                    "0.7,7,-2.8",
+                    "0.7,-7,-2.8",
+                    "-1.4,-7,-2.8"
                   ],
                   "TextureCoord": [
                     "-38,20",
@@ -123,20 +121,20 @@
                     "1,0,-0"
                   ],
                   "TextureScale": [
-                    "0.06249988,0.0625",
-                    "0.0625,0.0625",
-                    "0.06249999,0.0625",
-                    "0.06249999,0.0625",
-                    "0.06249999,0.0625",
-                    "0.06249999,0.0625"
+                    "0.0874998,0.0875",
+                    "0.08749998,0.08750001",
+                    "0.08749999,0.0875",
+                    "0.08749999,0.0875",
+                    "0.08749998,0.08749998",
+                    "0.08749998,0.08749998"
                   ],
                   "TextureOffset": [
-                    "0.0001678467,0",
-                    "0,0",
-                    "3.999977,0",
-                    "3.999979,0",
-                    "3.999977,0",
-                    "3.999979,0"
+                    "0.0001907349,0",
+                    "3.999985,3.999992",
+                    "3.999969,0",
+                    "3.999971,0",
+                    "3.999977,3.999977",
+                    "3.999975,0.00002288818"
                   ],
                   "MaterialIndex": [
                     1,
@@ -233,5 +231,6 @@
   "__references": [
     "drakefruit.glow#75696"
   ],
+  "IsValid": true,
   "__version": 1
 }

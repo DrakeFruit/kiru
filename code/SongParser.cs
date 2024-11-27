@@ -33,7 +33,7 @@ public sealed class SongParser : Component
 			if( currentBeat >= currentNote._time - timeToReach )
 			{
 				//Spawn note prefab, set position, and pass note data
-				GameObject no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -16, currentNote._lineLayer * 16 ) );
+				GameObject no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -32, currentNote._lineLayer * 32 ) );
 				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;

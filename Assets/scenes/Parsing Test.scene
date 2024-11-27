@@ -257,7 +257,6 @@
       "__guid": "d478485e-5512-4085-abf1-d193b39fc9cb",
       "Flags": 0,
       "Name": "Desktop Tester",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.PlayerController",
@@ -444,6 +443,7 @@
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
       "Name": "VR Player",
+      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.VR.VRAnchor",
@@ -516,7 +516,7 @@
               "Enabled": true,
               "__Prefab": "prefabs/saber.prefab",
               "__PrefabVariables": {
-                "Left Hand": false
+                "Left Hand": true
               }
             }
           ]
@@ -555,18 +555,6 @@
           ]
         }
       ]
-    },
-    {
-      "__guid": "174e713e-0669-4c8a-9baf-c70d18d048b2",
-      "Flags": 0,
-      "Name": "saber",
-      "Position": "64,16,32",
-      "Rotation": "0.1294095,-0.2999502,-0.4829628,0.8124223",
-      "Enabled": true,
-      "__Prefab": "prefabs/saber.prefab",
-      "__PrefabVariables": {
-        "Left Hand": false
-      }
     }
   ],
   "SceneProperties": {
@@ -600,5 +588,6 @@
   "__references": [
     "drakefruit.glow#75696"
   ],
+  "IsValid": true,
   "__version": 2
 }
