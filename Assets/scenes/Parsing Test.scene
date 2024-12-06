@@ -261,6 +261,9 @@
         {
           "__type": "Sandbox.PlayerController",
           "__guid": "27173c93-41ee-4cae-a532-73ee7e5f4043",
+          "AimStrengthBody": 1,
+          "AimStrengthEyes": 1,
+          "AimStrengthHead": 1,
           "Body": {
             "_type": "component",
             "component_id": "ad2313fe-fd25-421c-b187-82ef2877db9e",
@@ -271,6 +274,10 @@
           "BodyMass": 500,
           "BodyRadius": 16,
           "CameraOffset": "256,0,12",
+          "ColliderObject": {
+            "_type": "gameobject",
+            "go": "9684473c-b97f-4acc-9912-94d13aa1e804"
+          },
           "DuckedHeight": 36,
           "DuckedSpeed": 70,
           "EnableFootstepSounds": true,
@@ -436,6 +443,35 @@
               "RightMouseAction": "Attack2"
             }
           ]
+        },
+        {
+          "__guid": "9684473c-b97f-4acc-9912-94d13aa1e804",
+          "Flags": 1,
+          "Name": "Colliders",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.CapsuleCollider",
+              "__guid": "c90f41c0-4d70-4ad3-b464-e91034d3e537",
+              "End": "0,0,45.05097",
+              "Friction": 0,
+              "IsTrigger": false,
+              "Radius": 11.313708,
+              "Start": "0,0,60.68629",
+              "Static": false,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "57b32392-7eed-43fd-a0e7-477fdf81cbb4",
+              "Center": "0,0,18",
+              "Friction": 0,
+              "IsTrigger": false,
+              "Scale": "16,16,36",
+              "Static": false,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
         }
       ]
     },
@@ -444,117 +480,37 @@
       "Flags": 0,
       "Name": "VR Player",
       "Enabled": true,
+      "__Prefab": "prefabs/kiruplayer.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "329f4f1f-ea40-463f-8c1d-c70d093e87f6",
+      "Flags": 0,
+      "Name": "Point Light",
+      "Position": "33.56696,-0.00003094331,4.099224",
+      "Tags": "light_point,light",
+      "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.VR.VRAnchor",
-          "__guid": "76c8fe74-3183-426d-93a7-d0ea44c05c69"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "7e827c0e-56d9-4cc3-817b-c4c2685ea90c",
-          "Flags": 0,
-          "Name": "Head",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.VR.VRTrackedObject",
-              "__guid": "ea291ab5-0701-4f6b-b41c-de1edc0959b4",
-              "PoseSource": "Head",
-              "TrackingType": "All",
-              "UseRelativeTransform": false
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "8480d886-dde8-42d2-a665-7edfa7b0d3df",
-              "Flags": 0,
-              "Name": "Camera",
-              "Tags": "maincamera",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "Sandbox.CameraComponent",
-                  "__guid": "0d92a4ad-4cd3-4574-b792-a5505ae0f8c5",
-                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
-                  "ClearFlags": "All",
-                  "FieldOfView": 60,
-                  "IsMainCamera": true,
-                  "Orthographic": false,
-                  "OrthographicHeight": 1204,
-                  "Priority": 1,
-                  "RenderExcludeTags": "",
-                  "RenderTags": "",
-                  "TargetEye": "Both",
-                  "Viewport": "0,0,1,1",
-                  "ZFar": 10000,
-                  "ZNear": 10
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "__guid": "8f9b70e4-322f-4e1a-9950-b7eeae3bd311",
-          "Flags": 0,
-          "Name": "Hand Left",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.VR.VRTrackedObject",
-              "__guid": "68477287-098e-4039-8c4b-0ce118349dd9",
-              "PoseSource": "LeftHand",
-              "TrackingType": "All",
-              "UseRelativeTransform": false
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "e188bf32-21fa-4adf-b74f-82763d59e014",
-              "Flags": 0,
-              "Name": "saber",
-              "Enabled": true,
-              "__Prefab": "prefabs/saber.prefab",
-              "__PrefabVariables": {
-                "Left Hand": true
-              }
-            }
-          ]
-        },
-        {
-          "__guid": "db96564f-ad22-49db-ad2d-25fe4b5eee22",
-          "Flags": 0,
-          "Name": "Hand Right",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.VR.VRTrackedObject",
-              "__guid": "47571871-c055-4eb6-97c7-26ccece7f1e8",
-              "PoseSource": "RightHand",
-              "TrackingType": "All",
-              "UseRelativeTransform": false
-            },
-            {
-              "__type": "Sandbox.VRWorldInput",
-              "__guid": "bd9a9d33-77e5-4e81-bded-15406a40afa5",
-              "DampingFactor": 1,
-              "HandSource": "Right"
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "dcf139b3-ceac-4c8e-8880-46e197e1a6b3",
-              "Flags": 0,
-              "Name": "saber",
-              "Enabled": true,
-              "__Prefab": "prefabs/saber.prefab",
-              "__PrefabVariables": {
-                "Left Hand": false
-              }
-            }
-          ]
+          "__type": "Sandbox.PointLight",
+          "__guid": "b6d2dc22-d081-4d89-ae54-2c79d8eeed1e",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.12619,0.04846,0.26047,1",
+          "Radius": 400,
+          "Shadows": true
         }
       ]
+    },
+    {
+      "__guid": "e36e11a0-1074-47d2-bcd0-a040f291f1fb",
+      "Flags": 0,
+      "Name": "Grid",
+      "Position": "1024,0,0",
+      "Enabled": true,
+      "__Prefab": "prefabs/grid.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
@@ -588,6 +544,5 @@
   "__references": [
     "drakefruit.glow#75696"
   ],
-  "IsValid": true,
   "__version": 2
 }

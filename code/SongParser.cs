@@ -13,15 +13,15 @@ public sealed class SongParser : Component
 	SongChart SongChartData { get; set; }
 	SongInfo songInfo { get; set; }
 	MusicPlayer musicPlayer { get; set; }
+	Grid grid { get; set; }
 	TimeSince timeSinceStart { get; set; }
-	Vector3 SpawnPosition { get; set; }
 	bool IsSongPlaying { get; set; }
 	int noteCount { get; set; } = 0;
 	public float BPM { get; set; }
 	public float timeToReach { get; set; } = 0;
 	protected override void OnStart()
 	{
-		SpawnPosition = new Vector3( SpawnDistance, 22, 40 );
+		grid = Scene.Components.GetInChildren<Grid>();
 	}
 	protected override void OnFixedUpdate()
 	{
@@ -29,15 +29,14 @@ public sealed class SongParser : Component
 		{
 			var currentBeat = timeSinceStart.Relative * BPM / 60;
 			var currentNote = SongChartData._notes[noteCount];
-			timeToReach = Vector3.DistanceBetween( SpawnPosition, Vector3.Zero.WithX( StartLine.WorldPosition.x ) ) / ScrollSpeed * BPM / 60;
+			timeToReach = Vector3.DistanceBetween( grid.WorldPosition, Vector3.Zero.WithX( StartLine.WorldPosition.x ) ) / ScrollSpeed * BPM / 60;
 			if( currentBeat >= currentNote._time - timeToReach )
 			{
 				//Spawn note prefab, set position, and pass note data
-				GameObject no = NotePrefab.Clone( SpawnPosition + new Vector3( 0, currentNote._lineIndex * -32, currentNote._lineLayer * 32 ) );
+				GameObject no = NotePrefab.Clone( grid.Positions[currentNote._lineIndex][currentNote._lineLayer].WorldPosition );
 				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;
-
 				noteCount++;
 			}
 		}
