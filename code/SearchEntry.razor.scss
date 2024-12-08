@@ -10,7 +10,7 @@
   border-radius: 20px;
   pointer-events: all;
   font-family: Poppins;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   
   .SearchEntry
@@ -29,7 +29,6 @@
   .CheckBox
   {
     padding: .5%;
-    text-align: right;
     background-color: lightgray;
     color: black;
   }

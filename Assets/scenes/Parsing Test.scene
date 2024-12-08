@@ -257,6 +257,7 @@
       "__guid": "d478485e-5512-4085-abf1-d193b39fc9cb",
       "Flags": 0,
       "Name": "Desktop Tester",
+      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.PlayerController",
@@ -458,7 +459,6 @@
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
       "Name": "Player",
-      "Enabled": true,
       "__Prefab": "prefabs/kiruplayer.prefab",
       "__PrefabVariables": {}
     },

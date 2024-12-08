@@ -40,7 +40,7 @@ public sealed class SongDownloader : Component
 	}
 	public async Task DownloadSong()
 	{
-		SongFolder = $"songs/{WebInfo.Name}";
+		SongFolder = $"songs/{WebInfo.Name + " - " + WebInfo.Id}";
 		if ( !FileSystem.Data.DirectoryExists( SongFolder ) )
 		{
 			FileSystem.Data.CreateDirectory( SongFolder );
@@ -85,16 +85,16 @@ public sealed class SongDownloader : Component
 	        {
 		        songFilePath += diffSelection.Characteristic;
 		        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
-		        if ( Chart.NotesNew.Any() ) Chart.Notes = Chart.NotesNew;
 	        }
 	        catch {Log.Warning("Chart does not exist");}
         }
-
+        
+        if ( Chart.Notes == null ) Chart.Notes = Chart.NotesNew;
         if ( Chart.Notes == null )
         {
 	        Log.Warning("Chart uses custom song data, not yet supported");
 	        return;
         }
-        AudioPath =  SongFolder + "/" +  FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
+        AudioPath = SongFolder + "/" + FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
 	}
 }

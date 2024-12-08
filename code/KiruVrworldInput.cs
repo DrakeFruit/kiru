@@ -100,11 +100,7 @@ public sealed class KiruVRWorldInput : Component
 		var panel = worldInput.Hovered.FindRootPanel() as UI.WorldPanel;
 		if ( panel.IsValid() && panel.RayToLocalPosition( TargetRay, out var position, out var distance ) )
 		{
-			Plane plane = new( panel.Position, panel.Rotation.Forward );
-			if ( plane.TryTrace( TargetRay, out Vector3 hitPoint, true ) )
-			{
-				Gizmo.Draw.Line( WorldPosition, hitPoint );
-			}
+			Gizmo.Draw.Line( WorldPosition, WorldPosition + WorldRotation.Forward * distance );
 		}
 	}
 }

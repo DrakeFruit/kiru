@@ -43,7 +43,6 @@ public sealed class SongParser : Component
 	}
 	public void PlaySong(SongChart data, SongInfo info, string audio)
 	{
-		if ( data.NotesNew.Any() ) data.Notes = data.NotesNew;
 		browser.Enabled = false;
 		SongChartData = data;
 		songInfo = info;
