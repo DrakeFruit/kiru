@@ -13,12 +13,12 @@ public sealed class NoteComponent : Component
 	{
 		Parser = Scene.GetComponentInChildren<SongParser>();
 		// Apply note color
-		if( noteData._type == 0 ) Model.Tint = Parser.LeftNoteColor;
+		if( noteData.Type == 0 ) Model.Tint = Parser.LeftNoteColor;
 		else Model.Tint = Parser.RightNoteColor;
 		// Apply note rotation
-		if ( noteData._cutDirection != 8 )
+		if ( noteData.CutDirection != 8 )
 		{
-			Angle = ToRotation( noteData._cutDirection );
+			Angle = ToRotation( noteData.CutDirection );
 		}
 		else Angle = 0;
 		LocalRotation = new Angles( 0, 0, Angle );

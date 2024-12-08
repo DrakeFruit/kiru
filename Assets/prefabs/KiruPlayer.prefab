@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
     "Flags": 0,
-    "Name": "VR Player",
+    "Name": "kiruplayer",
     "Enabled": true,
     "Components": [
       {
@@ -95,9 +95,9 @@
             "UseRelativeTransform": false
           },
           {
-            "__type": "Sandbox.VRWorldInput",
-            "__guid": "bd9a9d33-77e5-4e81-bded-15406a40afa5",
-            "DampingFactor": 1,
+            "__type": "Sandbox.KiruVRWorldInput",
+            "__guid": "5dc71b1b-7de5-405e-bd17-07e756b4ad6f",
+            "DampingFactor": 0,
             "HandSource": "Right"
           }
         ],
@@ -114,7 +114,31 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,

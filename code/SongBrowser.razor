@@ -13,12 +13,12 @@
 	<div class="SongList">
 		@if ( Downloader.Results != null )
 		{
-			@foreach ( var i in Downloader.Results.docs )
+			@foreach ( var i in Downloader.Results.InfoList )
 			{
 				<SearchEntry WebInfo=@i Downloader=@Downloader/>
 			}
 		}
-	</div>
+	</div> 
 </root>
 
 @code
@@ -33,6 +33,6 @@
 
 	protected override int BuildHash()
 	{
-		return System.HashCode.Combine( Downloader?.Results?.docs );
+		return System.HashCode.Combine( Downloader?.Results?.InfoList );
 	}
 }

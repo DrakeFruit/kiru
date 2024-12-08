@@ -28,12 +28,12 @@ public sealed class SongParser : Component
 		if( IsSongPlaying )
 		{
 			var currentBeat = timeSinceStart.Relative * BPM / 60;
-			var currentNote = SongChartData._notes[noteCount];
+			var currentNote = SongChartData.Notes[noteCount];
 			timeToReach = Vector3.DistanceBetween( grid.WorldPosition, Vector3.Zero.WithX( StartLine.WorldPosition.x ) ) / ScrollSpeed * BPM / 60;
-			if( currentBeat >= currentNote._time - timeToReach )
+			if( currentBeat >= currentNote.Time - timeToReach )
 			{
 				//Spawn note prefab, set position, and pass note data
-				GameObject no = NotePrefab.Clone( grid.Positions[currentNote._lineIndex][currentNote._lineLayer].WorldPosition );
+				GameObject no = NotePrefab.Clone( grid.Positions[currentNote.LineIndex][currentNote.LineLayer].WorldPosition );
 				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;
@@ -43,11 +43,12 @@ public sealed class SongParser : Component
 	}
 	public void PlaySong(SongChart data, SongInfo info, string audio)
 	{
+		if ( data.NotesNew.Any() ) data.Notes = data.NotesNew;
 		browser.Enabled = false;
 		SongChartData = data;
 		songInfo = info;
 		timeSinceStart = 0;
-		BPM = songInfo._beatsPerMinute;
+		BPM = songInfo.BPM;
 
 		// Play song using this shit music player
 		musicPlayer = MusicPlayer.Play( FileSystem.Data, audio );

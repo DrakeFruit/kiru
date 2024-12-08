@@ -6,7 +6,7 @@
 @attribute [StyleSheet]
 
 <root class="SearchEntry" onclick=@( () => PlaySong() )>
-	<div class="Title">@WebInfo.name</div>
+	<div class="Title">@WebInfo.Name</div>
 	<div class="CheckBox">Check</div>
 </root>
 
@@ -21,6 +21,6 @@
 		await Downloader.DownloadSong();
 		
 		Parser = Downloader.Parser;
-		if( Downloader.Chart._notes != null && Downloader.Info._songName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
+		if( Downloader.Chart.Notes != null && Downloader.Info.SongName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
 	}
 }

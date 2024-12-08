@@ -1,42 +1,67 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Kiru;
 public class SongInfo
 {
-    public string _version { get; set; }
-    public string _songName { get; set; }
-    public string _songSubName { get; set; }
-    public string _songAuthorName { get; set; }
-    public string _levelAuthorName { get; set; }
-    public float _beatsPerMinute { get; set; }
-    public float _songTimeOffset { get; set; }
-    public float _shuffle { get; set; }
-    public float _shufflePeriod { get; set; }
-    public float _previewStartTime { get; set; }
-    public float _previewDuration { get; set; }
-    public string _songFilename { get; set; }
-    public string _coverImageFilename { get; set; }
-    public string _environmentName { get; set; }
-    public string _allDirectionsEnvironmentName { get; set; }
-    public List<DifficultyBeatmapSet> _difficultyBeatmapSets { get; set; }
+    [JsonPropertyName("_version")]
+    public string Version { get; set; }
+    [JsonPropertyName("_songName")]
+    public string SongName { get; set; }
+    [JsonPropertyName("_songSubName")]
+    public string SongSubName { get; set; }
+    [JsonPropertyName("_songAuthorName")]
+    public string SongAuthorName { get; set; }
+    [JsonPropertyName("_levelAuthorName")]
+    public string LevelAuthorName { get; set; }
+    [JsonPropertyName("_beatsPerMinute")]
+    public float BPM { get; set; }
+    [JsonPropertyName("_songTimeOffset")]
+    public float SongTimeOffset { get; set; }
+    [JsonPropertyName("_shuffle")]
+    public float Shuffle { get; set; }
+    [JsonPropertyName("_shufflePeriod")]
+    public float ShufflePeriod { get; set; }
+    [JsonPropertyName("_previewStartTime")]
+    public float PreviewStartTime { get; set; }
+    [JsonPropertyName("_previewDuration")]
+    public float PreviewDuration { get; set; }
+    [JsonPropertyName("_songFilename")]
+    public string SongFilename { get; set; }
+    [JsonPropertyName("_coverImageFilename")]
+    public string CoverImageFilename { get; set; }
+    [JsonPropertyName("_environmentName")]
+    public string EnvironmentName { get; set; }
+    [JsonPropertyName("_allDirectionsEnvironmentName")]
+    public string AllDirectionsEnvironmentName { get; set; }
+    [JsonPropertyName("_difficultyBeatmapSets")]
+    public List<DifficultyBeatmapSet> DifficultyBeatmapSets { get; set; }
     public class DifficultyBeatmapSet
     {
-        public string _beatmapCharacteristicName { get; set; }
-        public List<DifficultyBeatmap> _difficultyBeatmaps { get; set; }
+        [JsonPropertyName("_beatmapCharacteristicName")]
+        public string BeatmapCharacteristicName { get; set; }
+        [JsonPropertyName("_difficultyBeatmaps")]
+        public List<DifficultyBeatmap> DifficultyBeatmaps { get; set; }
         public class DifficultyBeatmap
         {
-            public string _difficulty { get; set; }
-            public int _difficultyRank { get; set; }
-            public string _beatmapFilename { get; set; }
-            public float _noteJumpMovementSpeed { get; set; }
-            public float _noteJumpStartBeatOffset { get; set; }
-            public int _beatmapColorSchemeIdx { get; set; }
-            public int _environmentNameIdx { get; set; }
+            [JsonPropertyName("_difficulty")]
+            public string Difficulty { get; set; }
+            [JsonPropertyName("_difficultyRank")]
+            public int DifficultyRank { get; set; }
+            [JsonPropertyName("_beatmapFilename")]
+            public string BeatmapFilename { get; set; }
+            [JsonPropertyName("_noteJumpMovementSpeed")]
+            public float NoteJumpMovementSpeed { get; set; }
+            [JsonPropertyName("_noteJumpStartBeatOffset")]
+            public float NoteJumpStartBeatOffset { get; set; }
+            [JsonPropertyName("_beatmapColorSchemeIdx")]
+            public int BeatmapColorSchemeIdx { get; set; }
+            [JsonPropertyName("_environmentNameIdx")]
+            public int EnvironmentNameIdx { get; set; }
         }
     }
-
-    public static SongInfo Read( string JsonAsString )
+    public static SongInfo Read(string jsonAsString)
     {
-    	return JsonSerializer.Deserialize<SongInfo>( JsonAsString );
+        return JsonSerializer.Deserialize<SongInfo>(jsonAsString);
     }
 }

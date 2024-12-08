@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.IO.Compression;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Kiru;
@@ -31,7 +30,7 @@ public sealed class SongDownloader : Component
 		string response = await Http.RequestStringAsync( Url );
 		Results = WebSongInfo.ReadList( response );
 		// I have no fucking clue how pages work, just check the next page if 0 is empty?
-		if ( Results.docs.Count == 0 )
+		if ( Results.InfoList.Count == 0 )
 		{
 			page = "1";
 			Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder=Rating";
@@ -41,13 +40,13 @@ public sealed class SongDownloader : Component
 	}
 	public async Task DownloadSong()
 	{
-		SongFolder = $"songs/{WebInfo.name}";
+		SongFolder = $"songs/{WebInfo.Name}";
 		if ( !FileSystem.Data.DirectoryExists( SongFolder ) )
 		{
 			FileSystem.Data.CreateDirectory( SongFolder );
 			
 			// Download the Zip from the url and extract the data
-			string songUrl = WebInfo.versions.First().downloadURL;
+			string songUrl = WebInfo.Versions.First().DownloadURL;
 
 			byte[] songFileData = await Http.RequestBytesAsync( songUrl );
 			try
@@ -73,10 +72,10 @@ public sealed class SongDownloader : Component
 			}
 		}
 		
-		var diffSelection = WebInfo.versions.First().diffs.Last();
+		var diffSelection = WebInfo.Versions.First().Difficulties.Last();
         Info = SongInfo.Read( FileSystem.Data.ReadAllText( SongFolder + "/Info.json" ) );
-        InstalledSongs.Add(Info._songName);
-        string songFilePath = SongFolder + "/" + diffSelection.difficulty;
+        InstalledSongs.Add(Info.SongName);
+        string songFilePath = SongFolder + "/" + diffSelection.Name;
         
         // There has to be a better way to do this, don't do this
         try { Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) ); }
@@ -84,13 +83,14 @@ public sealed class SongDownloader : Component
         {
 	        try
 	        {
-		        songFilePath += diffSelection.characteristic;
+		        songFilePath += diffSelection.Characteristic;
 		        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
+		        if ( Chart.NotesNew.Any() ) Chart.Notes = Chart.NotesNew;
 	        }
 	        catch {Log.Warning("Chart does not exist");}
         }
 
-        if ( Chart._notes == null )
+        if ( Chart.Notes == null )
         {
 	        Log.Warning("Chart uses custom song data, not yet supported");
 	        return;

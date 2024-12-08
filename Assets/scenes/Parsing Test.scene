@@ -341,27 +341,6 @@
           "StepUpHeight": 18
         },
         {
-          "__type": "Sandbox.CapsuleCollider",
-          "__guid": "604cd303-5671-4d55-b423-543489300d18",
-          "End": "0,0,45.05097",
-          "Friction": 0,
-          "IsTrigger": false,
-          "Radius": 11.313708,
-          "Start": "0,0,60.68629",
-          "Static": false,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.BoxCollider",
-          "__guid": "941f050f-e833-4927-9fff-e3c5e6742cd5",
-          "Center": "0,0,18",
-          "Friction": 0,
-          "IsTrigger": false,
-          "Scale": "16,16,36",
-          "Static": false,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
           "__type": "Sandbox.Movement.MoveModeSwim",
           "__guid": "0bbaa8f8-e551-4a7d-a2bb-8059e4db8f83",
           "Priority": 10,
@@ -478,7 +457,7 @@
     {
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
-      "Name": "VR Player",
+      "Name": "Player",
       "Enabled": true,
       "__Prefab": "prefabs/kiruplayer.prefab",
       "__PrefabVariables": {}

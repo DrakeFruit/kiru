@@ -71,7 +71,7 @@
         "__guid": "d632459e-fabc-444b-985f-c79a37c43e18",
         "Flags": 0,
         "Name": "1-1",
-        "Position": "0,24,56",
+        "Position": "0,44,24",
         "Enabled": true,
         "Children": [
           {
@@ -91,7 +91,7 @@
         "__guid": "756df821-65c5-4f10-8545-a99bcffd25fe",
         "Flags": 0,
         "Name": "1-2",
-        "Position": "0,24,72",
+        "Position": "0,44,52",
         "Enabled": true,
         "Children": [
           {
@@ -111,7 +111,7 @@
         "__guid": "f8266c0a-2a00-44a6-9781-5bee11bacb15",
         "Flags": 0,
         "Name": "1-3",
-        "Position": "0,24,88",
+        "Position": "0,44,80",
         "Enabled": true,
         "Children": [
           {
@@ -131,7 +131,7 @@
         "__guid": "819a08ae-95d0-40b6-bd43-198b6c26e28e",
         "Flags": 0,
         "Name": "2-1",
-        "Position": "0,8.000001,56",
+        "Position": "0,16,24",
         "Enabled": true,
         "Children": [
           {
@@ -151,7 +151,7 @@
         "__guid": "3f8607e3-37f2-41c2-ab5b-c3d2f2e67d52",
         "Flags": 0,
         "Name": "2-2",
-        "Position": "0,8.000001,72",
+        "Position": "0,16,52",
         "Enabled": true,
         "Children": [
           {
@@ -171,7 +171,7 @@
         "__guid": "b8acb4c0-e35d-4a92-bb0c-e91bc15bbd83",
         "Flags": 0,
         "Name": "2-3",
-        "Position": "0,8.000001,88",
+        "Position": "0,16,80",
         "Enabled": true,
         "Children": [
           {
@@ -191,7 +191,7 @@
         "__guid": "8cf81d60-552c-4aa4-b0b1-422e2929a370",
         "Flags": 0,
         "Name": "3-1",
-        "Position": "0,-8.000002,56",
+        "Position": "0,-12,24",
         "Enabled": true,
         "Children": [
           {
@@ -211,7 +211,7 @@
         "__guid": "98cf4f1b-481a-455b-8fd7-bffe3b0e301e",
         "Flags": 0,
         "Name": "3-2",
-        "Position": "0,-8.000002,72",
+        "Position": "0,-12,52",
         "Enabled": true,
         "Children": [
           {
@@ -231,7 +231,7 @@
         "__guid": "690ab2c3-8a77-458a-9202-20c1f7a6883b",
         "Flags": 0,
         "Name": "3-3",
-        "Position": "0,-8.000002,88",
+        "Position": "0,-12,80",
         "Enabled": true,
         "Children": [
           {
@@ -251,7 +251,7 @@
         "__guid": "0b85aa27-631c-4662-b04c-b98e582e6690",
         "Flags": 0,
         "Name": "4-1",
-        "Position": "0,-24,56",
+        "Position": "0,-40,24",
         "Enabled": true,
         "Children": [
           {
@@ -271,7 +271,7 @@
         "__guid": "31fc531c-1e00-4c07-b691-f22eee13d607",
         "Flags": 0,
         "Name": "4-2",
-        "Position": "0,-24,72",
+        "Position": "0,-40,52",
         "Enabled": true,
         "Children": [
           {
@@ -291,7 +291,7 @@
         "__guid": "ad80947a-4afa-4354-8bf6-3b3b8bf25251",
         "Flags": 0,
         "Name": "4-3",
-        "Position": "0,-24,88",
+        "Position": "0,-40,80",
         "Enabled": true,
         "Children": [
           {
