@@ -24,18 +24,25 @@ public sealed class SongDownloader : Component
 	}
 	public async void GetSearchResults( string Query )
 	{
-		string page = "0";
-		string SortOrder = "Relevance";
-		string Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder={SortOrder}";
-		string response = await Http.RequestStringAsync( Url );
-		Results = WebSongInfo.ReadList( response );
-		// I have no fucking clue how pages work, just check the next page if 0 is empty?
-		if ( Results.InfoList.Count == 0 )
+		try
 		{
-			page = "1";
-			Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder=Rating";
-			response = await Http.RequestStringAsync( Url );
+			var page = "0";
+			var SortOrder = "Relevance";
+			var Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder={SortOrder}";
+			var response = await Http.RequestStringAsync( Url );
 			Results = WebSongInfo.ReadList( response );
+			// I have no fucking clue how pages work, just check the next page if 0 is empty?
+			if ( Results.InfoList.Count == 0 )
+			{
+				page = "1";
+				Url = $"https://api.beatsaver.com/search/text/{page}?leaderboard=All&q={Query}&sortOrder=Rating";
+				response = await Http.RequestStringAsync( Url );
+				Results = WebSongInfo.ReadList( response );
+			}
+		}
+		catch (Exception e)
+		{
+			Log.Warning( "Search Error " + e.Message );
 		}
 	}
 	public async Task DownloadSong()
@@ -46,18 +53,18 @@ public sealed class SongDownloader : Component
 			FileSystem.Data.CreateDirectory( SongFolder );
 			
 			// Download the Zip from the url and extract the data
-			string songUrl = WebInfo.Versions.First().DownloadURL;
+			var songUrl = WebInfo.Versions.First().DownloadURL;
 
-			byte[] songFileData = await Http.RequestBytesAsync( songUrl );
+			var songFileData = await Http.RequestBytesAsync( songUrl );
 			try
 			{
 				ZipArchive zip = new(new MemoryStream(songFileData));
 				foreach (var e in zip.Entries)
 				{
-					string name = e.FullName;
+					var name = e.FullName;
 					if( e.FullName.EndsWith(".egg") ) name = e.FullName.Replace(".egg", ".ogg");
 					if( e.FullName.EndsWith(".dat") ) name = e.FullName.Replace(".dat", ".json");
-					string path = SongFolder + "/" + name;
+					var path = SongFolder + "/" + name;
 					Log.Info("Saving file " + path);
 					Stream zipStream = e.Open();
 					Stream fileStream = FileSystem.Data.OpenWrite(path);
@@ -68,32 +75,31 @@ public sealed class SongDownloader : Component
 			}
 			catch (Exception e)
 			{
-				Log.Error("Error downloading song " + e.Message);
+				Log.Error( "Error downloading song " + e.Message  );
 			}
 		}
 		
 		var diffSelection = WebInfo.Versions.First().Difficulties.Last();
-        Info = SongInfo.Read( FileSystem.Data.ReadAllText( SongFolder + "/Info.json" ) );
+		var songInfoPath = FileSystem.Data.FindFile( SongFolder ).First( i => i.Contains( "Info" ) );
+        Info = SongInfo.Read( await FileSystem.Data.ReadAllTextAsync( SongFolder + $"/{songInfoPath}" ) );
         InstalledSongs.Add(Info.SongName);
-        string songFilePath = SongFolder + "/" + diffSelection.Name;
-        
-        // There has to be a better way to do this, don't do this
-        try { Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) ); }
-        catch
+        var songFilePath = FileSystem.Data.FindFile(SongFolder).First( i => i.Contains(diffSelection.Name) );
+        songFilePath = SongFolder + $"/{songFilePath}";
+        try
         {
-	        try
-	        {
-		        songFilePath += diffSelection.Characteristic;
-		        Chart = SongChart.Read( FileSystem.Data.ReadAllText( $"{songFilePath}.json" ) );
-	        }
-	        catch {Log.Warning("Chart does not exist");}
+	        Chart = SongChart.Read( await FileSystem.Data.ReadAllTextAsync( songFilePath ) );
         }
-        
-        if ( Chart.Notes == null ) Chart.Notes = Chart.NotesNew;
-        if ( Chart.Notes == null )
+        catch
+        { 
+	        Log.Warning( "Chart does not exist" );
+        }
+        if ( Chart?.Notes == null )
         {
-	        Log.Warning("Chart uses custom song data, not yet supported");
-	        return;
+	        Log.Warning( "No notes found" );
+        }
+        if ( Info.BPM <= 0 )
+        {
+	        Log.Warning( "Info Error" );
         }
         AudioPath = SongFolder + "/" + FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
 	}

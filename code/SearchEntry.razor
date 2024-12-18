@@ -21,6 +21,8 @@
 		await Downloader.DownloadSong();
 		
 		Parser = Downloader.Parser;
+		Log.Info(Downloader);
 		if( Downloader.Chart.Notes != null && Downloader.Info.SongName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
+		else Log.Warning("Failed to play song");
 	}
 }

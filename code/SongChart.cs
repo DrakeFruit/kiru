@@ -86,6 +86,8 @@ public class SongChart
 	}
 	public static SongChart Read(string JsonAsString)
 	{
-		return JsonSerializer.Deserialize<SongChart>(JsonAsString);
+		var parsedChart = JsonSerializer.Deserialize<SongChart>(JsonAsString);
+		if ( parsedChart.Notes == null ) parsedChart.Notes = parsedChart.NotesNew;
+		return parsedChart;
 	}
 }

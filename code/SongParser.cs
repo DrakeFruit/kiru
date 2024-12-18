@@ -48,8 +48,7 @@ public sealed class SongParser : Component
 		songInfo = info;
 		timeSinceStart = 0;
 		BPM = songInfo.BPM;
-
-		// Play song using this shit music player
+		
 		musicPlayer = MusicPlayer.Play( FileSystem.Data, audio );
 		musicPlayer.ListenLocal = true;
 
