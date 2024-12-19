@@ -25,8 +25,11 @@ public sealed class NoteComponent : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		LocalPosition += Vector3.Backward * NoteSpeed * Time.Delta;
-		if ( LocalPosition.x <= -64 ) GameObject.Destroy();
+		if ( SongParser.IsSongPlaying )
+		{
+			LocalPosition += Vector3.Backward * NoteSpeed * Time.Delta;
+			if ( LocalPosition.x <= -64 ) GameObject.Destroy();
+		}
 	}
 
 	private static int ToRotation(float cutDirection) => cutDirection switch

@@ -19,7 +19,7 @@ SongBrowser
 	
 	.SearchBar
 	{
-		
+		flex-grow: 1;
 	}
 	.Button
 	{
@@ -34,6 +34,7 @@ SongBrowser
 		flex-direction: column;
         min-height: 30%;
 		min-width: 50%;
+		gap: 5px;
 	}
 	.Button, .SearchBar
 	{

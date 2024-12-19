@@ -47,6 +47,15 @@ public sealed class SongDownloader : Component
 	}
 	public async Task DownloadSong()
 	{
+		WebInfo.Name = WebInfo.Name.Replace( "/", "" );
+		WebInfo.Name = WebInfo.Name.Replace( @"\", "" );
+		WebInfo.Name = WebInfo.Name.Replace( "*", "" );
+		WebInfo.Name = WebInfo.Name.Replace( "?", "" );
+		WebInfo.Name = WebInfo.Name.Replace( ":", "" );
+		WebInfo.Name = WebInfo.Name.Replace( "\"", "" );
+		WebInfo.Name = WebInfo.Name.Replace( "<", "" );
+		WebInfo.Name = WebInfo.Name.Replace( ">", "" );
+		WebInfo.Name = WebInfo.Name.Replace( "|", "" );
 		SongFolder = $"songs/{WebInfo.Name + " - " + WebInfo.Id}";
 		if ( !FileSystem.Data.DirectoryExists( SongFolder ) )
 		{
@@ -80,10 +89,10 @@ public sealed class SongDownloader : Component
 		}
 		
 		var diffSelection = WebInfo.Versions.First().Difficulties.Last();
-		var songInfoPath = FileSystem.Data.FindFile( SongFolder ).First( i => i.Contains( "Info" ) );
+		var songInfoPath = FileSystem.Data.FindFile( SongFolder ).First( i => i.ToLower().Contains( "info" ) );
         Info = SongInfo.Read( await FileSystem.Data.ReadAllTextAsync( SongFolder + $"/{songInfoPath}" ) );
         InstalledSongs.Add(Info.SongName);
-        var songFilePath = FileSystem.Data.FindFile(SongFolder).First( i => i.Contains(diffSelection.Name) );
+        var songFilePath = FileSystem.Data.FindFile(SongFolder).First( i => i.ToLower().Contains(diffSelection.Name.ToLower()) );
         songFilePath = SongFolder + $"/{songFilePath}";
         try
         {

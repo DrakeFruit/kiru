@@ -7,7 +7,10 @@
 
 <root class="SearchEntry" onclick=@( () => PlaySong() )>
 	<div class="Title">@WebInfo.Name</div>
-	<div class="CheckBox">x</div>
+	@if ( Downloader.InstalledSongs.Contains( WebInfo.Name + " - " + WebInfo.Id ) )
+	{
+		<div class="CheckBox">X</div>
+	}
 </root>
 
 @code
@@ -21,7 +24,6 @@
 		await Downloader.DownloadSong();
 		
 		Parser = Downloader.Parser;
-		Log.Info(Downloader);
 		if( Downloader.Chart.Notes != null && Downloader.Info.SongName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
 		else Log.Warning("Failed to play song");
 	}
