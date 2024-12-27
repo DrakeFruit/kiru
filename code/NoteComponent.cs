@@ -28,7 +28,11 @@ public sealed class NoteComponent : Component
 		if ( SongParser.IsSongPlaying )
 		{
 			LocalPosition += Vector3.Backward * NoteSpeed * Time.Delta;
-			if ( LocalPosition.x <= -64 ) GameObject.Destroy();
+			if ( LocalPosition.x <= -64 )
+			{
+				Sound.Play( SongParser.MissSoundEvent );
+				GameObject.Destroy();
+			}
 		}
 	}
 

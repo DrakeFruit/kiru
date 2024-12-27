@@ -22,9 +22,10 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene",
+    "StartupScene": "scenes/parsing test.scene",
     "ControlModes": {
       "VR": true
-    }
+    },
+    "LaunchMode": "Normal"
   }
 }

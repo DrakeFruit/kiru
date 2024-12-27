@@ -10,6 +10,10 @@ public sealed class SongParser : Component
 	[Property] private GameObject StartLine { get; set; }
 	[Property] public Color LeftNoteColor { get; set; } = Color.Red;
 	[Property] public Color RightNoteColor { get; set; } = Color.Cyan;
+	[Property] public SoundEvent HitSound { get; set; }
+	[Property] public SoundEvent MissSound { get; set; }
+	public static SoundEvent HitSoundEvent { get; set; }
+	public static SoundEvent MissSoundEvent { get; set; }
 	[RequireComponent] SongBrowser Browser { get; set; }
 	SongChart SongChartData { get; set; }
 	SongInfo songInfo { get; set; }
@@ -22,6 +26,9 @@ public sealed class SongParser : Component
 	public float timeToReach { get; set; } = 0;
 	protected override void OnStart()
 	{
+		HitSoundEvent = HitSound;
+		MissSoundEvent = MissSound;
+		MissSound = MissSoundEvent;
 		grid = Scene.Components.GetInChildren<Grid>();
 		IsSongPlaying = false;
 	}
@@ -46,7 +53,8 @@ public sealed class SongParser : Component
 
 	protected override void OnUpdate()
 	{
-		if ( Input.EscapePressed && SongChartData != null )
+		if( Input.VR.LeftHand.ButtonB.WasPressed || Input.VR.RightHand.ButtonB.WasPressed ) Input.EscapePressed = true;
+		if( Input.EscapePressed && SongChartData != null )
 		{
 			IsSongPlaying = !IsSongPlaying;
 			musicPlayer.Paused = !musicPlayer.Paused;
@@ -65,6 +73,7 @@ public sealed class SongParser : Component
 		
 		foreach( var i in Scene.Components.GetAll<NoteComponent>() ) i.GameObject.Destroy();
 		musicPlayer = MusicPlayer.Play( FileSystem.Data, audio );
+		musicPlayer.TargetMixer = Mixer.FindMixerByName( "Music" );
 		musicPlayer.ListenLocal = true;
 
 		IsSongPlaying = true;

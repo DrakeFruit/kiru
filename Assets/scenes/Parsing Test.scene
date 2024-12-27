@@ -5,7 +5,6 @@
       "__guid": "4a18d355-fdc7-408f-a4fa-c6f94ad0b3ee",
       "Flags": 0,
       "Name": "Scene Information",
-      "Position": "148.634,-87.75421,-2.483643",
       "Enabled": true,
       "Components": [
         {
@@ -71,7 +70,9 @@
         {
           "__type": "Kiru.SongParser",
           "__guid": "2d4c29dd-1fd3-4633-9348-d625bf6ddb67",
+          "HitSound": "hit sound.sound",
           "LeftNoteColor": "1,0,0,1",
+          "MissSound": "miss sound.sound",
           "NotePrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/note.prefab"
@@ -266,7 +267,6 @@
       "__guid": "d478485e-5512-4085-abf1-d193b39fc9cb",
       "Flags": 0,
       "Name": "Desktop Tester",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.PlayerController",
@@ -404,7 +404,7 @@
           "__guid": "196e4c2b-ddbc-4c04-b7a0-c3b8e45c5c60",
           "Flags": 0,
           "Name": "Normal Camera",
-          "Position": "169.5508,103.4465,20.3586",
+          "Position": "0,0,64",
           "Tags": "maincamera",
           "Enabled": true,
           "Components": [
@@ -434,6 +434,20 @@
             {
               "__type": "DesktopCrosshair",
               "__guid": "b336c5e4-d30e-4f75-a7e1-b137b36b8067"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "2905f3ac-7395-4f06-9aee-0c885c0fa8d4",
+              "Flags": 0,
+              "Name": "saber (1)",
+              "Position": "32,-20.00001,-28",
+              "Rotation": "-0.3535534,-0.3535534,0.1464466,0.8535535",
+              "Enabled": true,
+              "__Prefab": "prefabs/saber.prefab",
+              "__PrefabVariables": {
+                "Left Hand": false
+              }
             }
           ]
         },
@@ -472,6 +486,7 @@
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
       "Name": "Player",
+      "Enabled": true,
       "__Prefab": "prefabs/kiruplayer.prefab",
       "__PrefabVariables": {}
     },
