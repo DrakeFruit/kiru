@@ -11,8 +11,12 @@ public sealed class NoteComponent : Component
 	public float NoteSpeed { get; set; } = 300f;
 	protected override void OnStart()
 	{
+		if ( Model == null ){ Log.Error( $"Model is null in NoteComponent." ); return; }
+		if ( noteData == null ){ Log.Error( "noteData is null in NoteComponent." ); return; }
+		if ( Parser == null ){ Log.Error( "Parser is null in NoteComponent." ); return; }
+
 		// Apply note color
-		Log.Info(Model);
+		Log.Info( $"Model Tint: {Model.Tint}" );
 		//Model.Tint = noteData.Type.Equals( 0 ) ? Parser.LeftNoteColor : Parser.RightNoteColor;
 		// // Apply note rotation
 		// if ( noteData.CutDirection != 8 )

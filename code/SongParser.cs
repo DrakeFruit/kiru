@@ -43,7 +43,8 @@ public sealed class SongParser : Component
 			{
 				//Spawn note prefab, set position, and pass note data
 				GameObject no = NotePrefab.Clone( grid.Positions[currentNote.LineIndex][currentNote.LineLayer].WorldPosition );
-				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
+				no.Name = $"note_{noteCount.ToString()}";
+				NoteComponent co = no.GetComponentInChildren<NoteComponent>();
 				co.Parser = this;
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;

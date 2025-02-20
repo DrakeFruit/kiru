@@ -3,11 +3,18 @@
     "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
     "Flags": 0,
     "Name": "kiruplayer",
+    "Tags": "player",
     "Enabled": true,
     "Components": [
       {
         "__type": "Sandbox.VR.VRAnchor",
-        "__guid": "76c8fe74-3183-426d-93a7-d0ea44c05c69"
+        "__guid": "76c8fe74-3183-426d-93a7-d0ea44c05c69",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -20,6 +27,13 @@
           {
             "__type": "Sandbox.VR.VRTrackedObject",
             "__guid": "ea291ab5-0701-4f6b-b41c-de1edc0959b4",
+            "__enabled": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "PoseSource": "Head",
             "TrackingType": "All",
             "UseRelativeTransform": false
@@ -40,6 +54,12 @@
                 "ClearFlags": "All",
                 "FieldOfView": 60,
                 "IsMainCamera": true,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "Orthographic": false,
                 "OrthographicHeight": 1204,
                 "Priority": 1,
@@ -63,6 +83,12 @@
           {
             "__type": "Sandbox.VR.VRTrackedObject",
             "__guid": "68477287-098e-4039-8c4b-0ce118349dd9",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "PoseSource": "LeftHand",
             "TrackingType": "All",
             "UseRelativeTransform": false
@@ -91,6 +117,12 @@
           {
             "__type": "Sandbox.VR.VRTrackedObject",
             "__guid": "47571871-c055-4eb6-97c7-26ccece7f1e8",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "PoseSource": "RightHand",
             "TrackingType": "All",
             "UseRelativeTransform": false
@@ -119,7 +151,13 @@
                 "__type": "Sandbox.KiruVRWorldInput",
                 "__guid": "da640d2f-ec9c-4249-b1e1-9154df5a16b5",
                 "DampingFactor": 0,
-                "HandSource": "Right"
+                "HandSource": "Right",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null
               }
             ]
           }

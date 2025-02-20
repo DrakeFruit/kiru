@@ -5,6 +5,24 @@
     "Name": "note",
     "Tags": "note",
     "Enabled": true,
+    "Components": [
+      {
+        "__type": "Kiru.NoteComponent",
+        "__guid": "a47eec77-5ddf-4e2e-96dc-7ed1147000ef",
+        "Model": {
+          "_type": "component",
+          "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
+          "go": "18743f20-4864-44ff-a49f-fdc032242af2",
+          "component_type": "ModelRenderer"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
     "Children": [
       {
         "__guid": "005fc3f6-2c2d-4776-bf1c-4a7f3d15f07b",
@@ -259,27 +277,12 @@
         "Enabled": true,
         "Components": [
           {
-            "__type": "Kiru.NoteComponent",
-            "__guid": "51432f03-1e1d-4bfd-934b-10f7fa1ed281",
-            "Model": {
-              "_type": "component",
-              "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
-              "go": "18743f20-4864-44ff-a49f-fdc032242af2",
-              "component_type": "ModelRenderer"
-            },
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
-          },
-          {
             "__type": "Sandbox.BoxCollider",
             "__guid": "87995cae-ba77-4129-9512-0e3bc7fe57d6",
+            "__enabled": false,
             "Center": "0,0,0",
             "Friction": null,
-            "IsTrigger": false,
+            "IsTrigger": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
