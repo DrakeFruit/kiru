@@ -63,7 +63,13 @@
             "_type": "gameobject",
             "go": "b8acb4c0-e35d-4a92-bb0c-e91bc15bbd83"
           }
-        ]
+        ],
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

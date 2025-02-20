@@ -1,5 +1,5 @@
+using Sandbox;
 using Sandbox.Audio;
-using Sandbox.UI;
 
 namespace Kiru;
 public sealed class SongParser : Component
@@ -44,6 +44,7 @@ public sealed class SongParser : Component
 				//Spawn note prefab, set position, and pass note data
 				GameObject no = NotePrefab.Clone( grid.Positions[currentNote.LineIndex][currentNote.LineLayer].WorldPosition );
 				NoteComponent co = no.Components.GetOrCreate<NoteComponent>();
+				co.Parser = this;
 				co.noteData = currentNote;
 				co.NoteSpeed = ScrollSpeed;
 				noteCount++;
@@ -53,8 +54,11 @@ public sealed class SongParser : Component
 
 	protected override void OnUpdate()
 	{
-		if( Input.VR.LeftHand.ButtonB.WasPressed || Input.VR.RightHand.ButtonB.WasPressed ) Input.EscapePressed = true;
-		if( Input.EscapePressed && SongChartData != null )
+		if ( Game.IsRunningInVR )
+		{
+			if ( Input.VR.LeftHand.ButtonB.WasPressed || Input.VR.RightHand.ButtonB.WasPressed ) Input.EscapePressed = true;
+		}
+		if ( Input.EscapePressed && SongChartData != null )
 		{
 			IsSongPlaying = !IsSongPlaying;
 			musicPlayer.Paused = !musicPlayer.Paused;

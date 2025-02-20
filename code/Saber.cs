@@ -19,18 +19,18 @@ public sealed class Saber : Component
 			if ( i.Tags.Has( "note" ) )
 			{
 				var note = i.GetComponent<NoteComponent>();
-				switch ( note.noteData?.Type )
+				switch ( note.noteData.Type )
 				{
 					// Wrong saber
 					case 0 when !LeftHand:
 					case 1 when LeftHand:
-						Sound.Play( SongParser.MissSoundEvent );
+						//Sound.Play( SongParser.MissSoundEvent );
 						i.DestroyGameObject();
 						return;
 					// Correct saber
 					case 0 when LeftHand:
 					case 1 when !LeftHand:
-						Sound.Play( SongParser.HitSoundEvent );
+						//Sound.Play( SongParser.HitSoundEvent );
 						i.DestroyGameObject();
 						return;
 				}

@@ -11,17 +11,16 @@ public sealed class NoteComponent : Component
 	public float NoteSpeed { get; set; } = 300f;
 	protected override void OnStart()
 	{
-		Parser = Scene.GetComponentInChildren<SongParser>();
 		// Apply note color
-		if( noteData.Type == 0 ) Model.Tint = Parser.LeftNoteColor;
-		else Model.Tint = Parser.RightNoteColor;
-		// Apply note rotation
-		if ( noteData.CutDirection != 8 )
-		{
-			Angle = ToRotation( noteData.CutDirection );
-		}
-		else Angle = 0;
-		LocalRotation = new Angles( 0, 0, Angle );
+		Log.Info(Model);
+		//Model.Tint = noteData.Type.Equals( 0 ) ? Parser.LeftNoteColor : Parser.RightNoteColor;
+		// // Apply note rotation
+		// if ( noteData.CutDirection != 8 )
+		// {
+		// 	Angle = ToRotation( noteData.CutDirection );
+		// }
+		// else Angle = 0;
+		// LocalRotation = new Angles( 0, 0, Angle );
 	}
 	protected override void OnFixedUpdate()
 	{
@@ -30,7 +29,7 @@ public sealed class NoteComponent : Component
 			LocalPosition += Vector3.Backward * NoteSpeed * Time.Delta;
 			if ( LocalPosition.x <= -64 )
 			{
-				Sound.Play( SongParser.MissSoundEvent );
+				//Sound.Play( SongParser.MissSoundEvent );
 				GameObject.Destroy();
 			}
 		}

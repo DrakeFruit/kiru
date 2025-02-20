@@ -5,27 +5,6 @@
     "Name": "note",
     "Tags": "note",
     "Enabled": true,
-    "Components": [
-      {
-        "__type": "Kiru.NoteComponent",
-        "__guid": "1916a09a-7e33-45cc-a8d0-c98815167c0b",
-        "Model": {
-          "_type": "component",
-          "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
-          "go": "18743f20-4864-44ff-a49f-fdc032242af2",
-          "component_type": "ModelRenderer"
-        }
-      },
-      {
-        "__type": "Sandbox.BoxCollider",
-        "__guid": "b28a5d08-193b-437d-a2a3-6423950597bd",
-        "Center": "0,0,0",
-        "IsTrigger": true,
-        "Scale": "16,16,16",
-        "Static": false,
-        "SurfaceVelocity": "0,0,0"
-      }
-    ],
     "Children": [
       {
         "__guid": "005fc3f6-2c2d-4776-bf1c-4a7f3d15f07b",
@@ -46,7 +25,15 @@
                 "__guid": "ea391dc1-cc00-4658-b223-127f36895197",
                 "BodyGroups": 18446744073709551615,
                 "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/glow.vmat",
+                "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "RenderOptions": {
                   "GameLayer": true,
                   "OverlayLayer": false,
@@ -71,10 +58,13 @@
                 "__guid": "777fc01e-b7ba-4ec0-a3c7-7ce4ca3773a9",
                 "Collision": "Mesh",
                 "Color": "1,1,1,1",
+                "Friction": null,
                 "HideInGame": false,
                 "IsTrigger": false,
                 "Mesh": {
-                  "Topology": "H4sIAAAAAAAACl2RiW7DMAxDX5rUXY9tvdZ2Z3dv//\u002BDGR5GA0YDBLYlihKpFfALLPn/JsAAFOAKWAAr4AY4AQ/AE/ACdPmtab8NME28Dx8Ndp94H1y56H1samYNbx/sNlhr58BnZh1y7hoN6voObho9h3DJfQ18JF6i9S5YOW6B12Bn8WHdaN4kPsm5Dmet34WjerFtciW9lsl18aZr/DteeHWIliHnfXZS9\u002BWO3prdPWZfJXixX7nb9zm7NC9e7E/ucpzDWb0U\u002Bx6t5u0lxrcz6ZVxf2N6q2ferbfWnvI7g7OoQbz63GXNeTqLGnw7g7t0R3Vf4ziOeqoveqWfdUZnk1\u002BOP69gPZ3oAgAA",
+                  "Topology": "H4sIAAAAAAAACl2RiW7DMAxDX5rUXY9tvdZ2Z3dv//+DGR5GA0YDBLYlihKpFfALLPn/JsAAFOAKWAAr4AY4AQ/AE/ACdPmtab8NME28Dx8Ndp94H1y56H1samYNbx/sNlhr58BnZh1y7hoN6voObho9h3DJfQ18JF6i9S5YOW6B12Bn8WHdaN4kPsm5Dmet34WjerFtciW9lsl18aZr/DteeHWIliHnfXZS9+WO3prdPWZfJXixX7nb9zm7NC9e7E/ucpzDWb0U+x6t5u0lxrcz6ZVxf2N6q2ferbfWnvI7g7OoQbz63GXNeTqLGnw7g7t0R3Vf4ziOeqoveqWfdUZnk1+OP69gPZ3oAgAA",
+                  "Position": "-10.93548,0,-2.562088",
+                  "Rotation": "0,0,0,1",
                   "Positions": [
                     "0,-1.215414,-1.614614",
                     "1.088575,-1.215414,-1.614614",
@@ -158,30 +148,30 @@
                     "-0,0,-1"
                   ],
                   "TextureScale": [
-                    "0.1360719,0.1360719",
+                    "0.1360719,0.1360718",
                     "0.1700899,0.1700898",
                     "NaN,NaN",
                     "NaN,NaN",
                     "NaN,NaN",
                     "NaN,NaN",
                     "0.1360719,0.1360719",
-                    "0.2,0.1999998",
-                    "0.2000013,0.1999998",
-                    "0.2,0.1999998",
-                    "0.2000013,0.1999998"
+                    "0.2,0.1999996",
+                    "0.2000013,0.1999996",
+                    "0.2,0.1999996",
+                    "0.2000013,0.1999996"
                   ],
                   "TextureOffset": [
-                    "0.3654404,3.999998",
+                    "0.365448,3.999997",
                     "1.323425,3.999985",
                     "NaN,NaN",
                     "NaN,NaN",
                     "NaN,NaN",
                     "NaN,NaN",
                     "3.63456,3.999977",
-                    "3.999996,2.02002",
-                    "2.35836,2.020023",
-                    "3.999996,2.02002",
-                    "1.64164,2.020023"
+                    "0,2.019985",
+                    "2.358364,2.019985",
+                    "0,2.019985",
+                    "1.641636,2.019985"
                   ],
                   "MaterialIndex": [
                     1,
@@ -243,11 +233,67 @@
                     "materials/glow.vmat"
                   ]
                 },
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "SmoothingAngle": 40,
                 "Static": true,
+                "Surface": null,
                 "SurfaceVelocity": "0,0,0"
               }
             ]
+          }
+        ]
+      },
+      {
+        "__guid": "ad0eef08-1d79-44a9-822f-b2f862e57436",
+        "Flags": 0,
+        "Name": "Collider",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Kiru.NoteComponent",
+            "__guid": "51432f03-1e1d-4bfd-934b-10f7fa1ed281",
+            "Model": {
+              "_type": "component",
+              "component_id": "ea391dc1-cc00-4658-b223-127f36895197",
+              "go": "18743f20-4864-44ff-a49f-fdc032242af2",
+              "component_type": "ModelRenderer"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "87995cae-ba77-4129-9512-0e3bc7fe57d6",
+            "Center": "0,0,0",
+            "Friction": null,
+            "IsTrigger": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "Scale": "50,50,50",
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
           }
         ]
       }

@@ -10,10 +10,19 @@
         {
           "__type": "Sandbox.SceneInformation",
           "__guid": "60aa3122-f76f-4035-a09f-75fcfd0d7c89",
+          "Author": null,
           "Changes": "",
           "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "SceneTags": "",
-          "Title": "Parsing Test"
+          "Title": "Parsing Test",
+          "Version": null
         }
       ]
     },
@@ -38,8 +47,15 @@
           "FrameInterval": 5,
           "MaxDistance": 4096,
           "MultiBounce": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Projection": "Box",
           "RenderDynamically": false,
+          "Texture": null,
           "TintColor": "1,1,1,1",
           "UpdateStrategy": "OnEnabled",
           "ZFar": 4096,
@@ -48,6 +64,12 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "6df75d7f-0a2f-4ac4-bb1e-56738b77b2c6",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "0,0,0,1"
@@ -55,7 +77,13 @@
         {
           "__type": "Sandbox.AmbientLight",
           "__guid": "191d7785-caf7-457e-a15d-ab56232c0118",
-          "Color": "0.0093,0.0093,0.0093,1"
+          "Color": "0.0093,0.0093,0.0093,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -63,20 +91,26 @@
       "__guid": "e531282d-9ba1-41e7-b9f0-3c76ca05fa3d",
       "Flags": 0,
       "Name": "Song Browser",
-      "Position": "160,-0.00001798064,69.70998",
-      "Rotation": "0,0,1,0.0000001947072",
+      "Position": "96,0.000009442048,64",
+      "Rotation": "0,0,1,-0.00000004371139",
       "Enabled": true,
       "Components": [
         {
           "__type": "Kiru.SongParser",
           "__guid": "2d4c29dd-1fd3-4633-9348-d625bf6ddb67",
-          "HitSound": "hit sound.sound",
+          "HitSound": "sounds/hit sound.sound",
           "LeftNoteColor": "1,0,0,1",
-          "MissSound": "miss sound.sound",
+          "MissSound": "sounds/miss sound.sound",
           "NotePrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/note.prefab"
           },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "RightNoteColor": "0,1,0.96667,1",
           "ScrollSpeed": 1000,
           "SpawnDistance": 1024,
@@ -87,7 +121,13 @@
         },
         {
           "__type": "Kiru.SongDownloader",
-          "__guid": "4ef54835-f31b-49b8-9202-334d0cf2406a"
+          "__guid": "4ef54835-f31b-49b8-9202-334d0cf2406a",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.WorldPanel",
@@ -95,6 +135,12 @@
           "HorizontalAlign": "Center",
           "InteractionRange": 1000,
           "LookAtCamera": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "PanelSize": "4000,2000",
           "RenderOptions": {
             "GameLayer": true,
@@ -107,7 +153,13 @@
         },
         {
           "__type": "Sandbox.SongBrowser",
-          "__guid": "738ad4cf-f71d-453f-80ad-03c95d130b63"
+          "__guid": "738ad4cf-f71d-453f-80ad-03c95d130b63",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -121,6 +173,7 @@
         {
           "__type": "Sandbox.LineRenderer",
           "__guid": "ea80c7ba-4bc1-4197-878f-e3305d19a7c3",
+          "Additive": false,
           "CastShadows": true,
           "Color": {
             "blend": "Linear",
@@ -132,8 +185,17 @@
             ],
             "alpha": []
           },
+          "DepthFeather": 0,
           "EndCap": "Rounded",
           "Face": "Camera",
+          "FogStrength": 1,
+          "Lighting": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Opaque": false,
           "Points": [
             {
@@ -207,10 +269,13 @@
           "__guid": "912b7595-a146-4be1-a60e-a2da5743121d",
           "Collision": "Mesh",
           "Color": "1,1,1,1",
+          "Friction": null,
           "HideInGame": false,
           "IsTrigger": false,
           "Mesh": {
-            "Topology": "H4sIAAAAAAAACk2MCQoAIQzE4qqr//9wJdiCA6WQOQawgcbVBwzgT\u002BbJXi0gIkLeM68q69fXm7n1bsv1a6skN2tH394B6DpJeKAAAAA=",
+            "Topology": "H4sIAAAAAAAACk2MCQoAIQzE4qqr//9wJdiCA6WQOQawgcbVBwzgT+bJXi0gIkLeM68q69fXm7n1bsv1a6skN2tH394B6DpJeKAAAAA=",
+            "Position": "896,0,0",
+            "Rotation": "0,0,0,1",
             "Positions": [
               "-1024,-32,0",
               "1024,-32,0",
@@ -257,8 +322,19 @@
               "materials/glow.vmat"
             ]
           },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
           "SmoothingAngle": 40,
           "Static": true,
+          "Surface": null,
           "SurfaceVelocity": "0,0,0"
         }
       ]
@@ -267,27 +343,33 @@
       "__guid": "d478485e-5512-4085-abf1-d193b39fc9cb",
       "Flags": 0,
       "Name": "Desktop Tester",
+      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.PlayerController",
           "__guid": "27173c93-41ee-4cae-a532-73ee7e5f4043",
+          "AccelerationTime": 0,
           "AimStrengthBody": 1,
           "AimStrengthEyes": 1,
           "AimStrengthHead": 1,
+          "AltMoveButton": "run",
           "Body": {
             "_type": "component",
             "component_id": "ad2313fe-fd25-421c-b187-82ef2877db9e",
             "go": "d478485e-5512-4085-abf1-d193b39fc9cb",
             "component_type": "Rigidbody"
           },
+          "BodyCollisionTags": null,
           "BodyHeight": 72,
           "BodyMass": 500,
           "BodyRadius": 16,
+          "BrakePower": 1,
           "CameraOffset": "256,0,12",
           "ColliderObject": {
             "_type": "gameobject",
             "go": "9684473c-b97f-4acc-9912-94d13aa1e804"
           },
+          "DeaccelerationTime": 0,
           "DuckedHeight": 36,
           "DuckedSpeed": 70,
           "EnableFootstepSounds": true,
@@ -300,16 +382,20 @@
           "FootstepVolume": 1,
           "HideBodyInFirstPerson": true,
           "JumpSpeed": 300,
+          "LookSensitivity": 1,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PitchClamp": 90,
           "ReachLength": 130,
-          "Renderer": {
-            "_type": "component",
-            "component_id": "74d4612b-04ff-423e-a277-7657a7e43e75",
-            "go": "0896b8e1-7df4-4b84-a6e9-8b6a222433bd",
-            "component_type": "SkinnedModelRenderer"
-          },
+          "Renderer": null,
           "RotateWithGround": true,
           "RotationAngleLimit": 45,
           "RotationSpeed": 1,
+          "RunByDefault": false,
           "RunSpeed": 320,
           "ShowColliderComponents": false,
           "ShowRigidbodyComponent": false,
@@ -318,7 +404,9 @@
           "UseAnimatorControls": true,
           "UseButton": "use",
           "UseCameraControls": true,
+          "UseFovFromPreferences": true,
           "UseInputControls": true,
+          "UseLookControls": true,
           "WalkSpeed": 110
         },
         {
@@ -338,6 +426,12 @@
           "MassCenterOverride": "0,0,36",
           "MassOverride": 500,
           "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OverrideMassCenter": true,
           "RigidbodyFlags": "DisableCollisionSounds",
           "StartAsleep": false
@@ -346,6 +440,12 @@
           "__type": "Sandbox.Movement.MoveModeWalk",
           "__guid": "5014da88-c67f-4f9c-b811-1e98f302c90d",
           "GroundAngle": 45,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Priority": 0,
           "StepDownHeight": 18,
           "StepUpHeight": 18
@@ -353,6 +453,12 @@
         {
           "__type": "Sandbox.Movement.MoveModeSwim",
           "__guid": "0bbaa8f8-e551-4a7d-a2bb-8059e4db8f83",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Priority": 10,
           "SwimLevel": 0.7
         },
@@ -360,7 +466,14 @@
           "__type": "Sandbox.Movement.MoveModeLadder",
           "__guid": "10a93096-2097-4285-937e-39291fe88d06",
           "ClimbableTags": "ladder",
-          "Priority": 5
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Priority": 5,
+          "Speed": 1
         }
       ],
       "Children": [
@@ -368,37 +481,7 @@
           "__guid": "0896b8e1-7df4-4b84-a6e9-8b6a222433bd",
           "Flags": 0,
           "Name": "Body",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "74d4612b-04ff-423e-a277-7657a7e43e75",
-              "BodyGroups": 341,
-              "CreateAttachments": false,
-              "CreateBoneObjects": false,
-              "Model": "models/citizen/citizen.vmdl",
-              "Morphs": {},
-              "Parameters": {
-                "bools": {},
-                "ints": {},
-                "floats": {},
-                "vectors": {},
-                "rotations": {}
-              },
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Sequence": {
-                "Name": null
-              },
-              "Tint": "1,1,1,1",
-              "UseAnimGraph": true
-            }
-          ]
+          "Enabled": true
         },
         {
           "__guid": "196e4c2b-ddbc-4c04-b7a0-c3b8e45c5c60",
@@ -415,6 +498,12 @@
               "ClearFlags": "All",
               "FieldOfView": 60,
               "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Orthographic": false,
               "OrthographicHeight": 1204,
               "Priority": 1,
@@ -429,11 +518,23 @@
               "__type": "Sandbox.WorldInput",
               "__guid": "d7191ce5-95e3-4907-bdb4-2552d6d68376",
               "LeftMouseAction": "Attack1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "RightMouseAction": "Attack2"
             },
             {
               "__type": "DesktopCrosshair",
-              "__guid": "b336c5e4-d30e-4f75-a7e1-b137b36b8067"
+              "__guid": "b336c5e4-d30e-4f75-a7e1-b137b36b8067",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ],
           "Children": [
@@ -463,9 +564,20 @@
               "End": "0,0,45.05097",
               "Friction": 0,
               "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Radius": 11.313708,
               "Start": "0,0,60.68629",
               "Static": false,
+              "Surface": null,
               "SurfaceVelocity": "0,0,0"
             },
             {
@@ -474,8 +586,19 @@
               "Center": "0,0,18",
               "Friction": 0,
               "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "16,16,36",
               "Static": false,
+              "Surface": null,
               "SurfaceVelocity": "0,0,0"
             }
           ]
@@ -486,7 +609,6 @@
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
       "Name": "Player",
-      "Enabled": true,
       "__Prefab": "prefabs/kiruplayer.prefab",
       "__PrefabVariables": {}
     },
@@ -505,6 +627,12 @@
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.12619,0.04846,0.26047,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Radius": 400,
           "Shadows": true
         }

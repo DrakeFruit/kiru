@@ -1,11 +1,11 @@
 {
   "UI": true,
-  "Volume": "2",
-  "Pitch": "1",
+  "Volume": "1",
+  "Pitch": "0.8 1.2",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/kenney/ui/back_004.vsnd"
+    "sounds/combobreak.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,

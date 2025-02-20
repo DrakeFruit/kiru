@@ -73,6 +73,7 @@
             "__guid": "e188bf32-21fa-4adf-b74f-82763d59e014",
             "Flags": 0,
             "Name": "saber",
+            "Rotation": "0,0.3826834,0,0.9238796",
             "Enabled": true,
             "__Prefab": "prefabs/saber.prefab",
             "__PrefabVariables": {
@@ -93,12 +94,6 @@
             "PoseSource": "RightHand",
             "TrackingType": "All",
             "UseRelativeTransform": false
-          },
-          {
-            "__type": "Sandbox.KiruVRWorldInput",
-            "__guid": "5dc71b1b-7de5-405e-bd17-07e756b4ad6f",
-            "DampingFactor": 0,
-            "HandSource": "Right"
           }
         ],
         "Children": [
@@ -106,11 +101,27 @@
             "__guid": "dcf139b3-ceac-4c8e-8880-46e197e1a6b3",
             "Flags": 0,
             "Name": "saber",
+            "Rotation": "0,0.3826834,0,0.9238796",
             "Enabled": true,
             "__Prefab": "prefabs/saber.prefab",
             "__PrefabVariables": {
               "Left Hand": false
             }
+          },
+          {
+            "__guid": "dfd2b36c-4086-4ab4-9133-3d7f7e1fd04c",
+            "Flags": 0,
+            "Name": "Object",
+            "Rotation": "0,0.3826835,0,0.9238795",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.KiruVRWorldInput",
+                "__guid": "da640d2f-ec9c-4249-b1e1-9154df5a16b5",
+                "DampingFactor": 0,
+                "HandSource": "Right"
+              }
+            ]
           }
         ]
       }
