@@ -16,15 +16,14 @@ public sealed class NoteComponent : Component
 		if ( Parser == null ){ Log.Error( "Parser is null in NoteComponent." ); return; }
 
 		// Apply note color
-		Log.Info( $"Model Tint: {Model.Tint}" );
-		//Model.Tint = noteData.Type.Equals( 0 ) ? Parser.LeftNoteColor : Parser.RightNoteColor;
-		// // Apply note rotation
-		// if ( noteData.CutDirection != 8 )
-		// {
-		// 	Angle = ToRotation( noteData.CutDirection );
-		// }
-		// else Angle = 0;
-		// LocalRotation = new Angles( 0, 0, Angle );
+		Model.Tint = noteData.Type.Equals( 0 ) ? Parser.LeftNoteColor : Parser.RightNoteColor;
+		// Apply note rotation
+		if ( noteData.CutDirection != 8 )
+		{
+			Angle = ToRotation( noteData.CutDirection );
+		}
+		else Angle = 0;
+		LocalRotation = new Angles( 0, 0, Angle );
 	}
 	protected override void OnFixedUpdate()
 	{
