@@ -20,11 +20,20 @@
 	public SongParser Parser { get; set; }
 	public async void PlaySong()
 	{
-		Downloader.WebInfo = WebInfo;
-		await Downloader.DownloadSong();
-		
-		Parser = Downloader.Parser;
-		if( Downloader.Chart.Notes != null && Downloader.Info.SongName != null ) Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
-		else Log.Warning("Failed to play song");
+		try
+		{
+			Downloader.WebInfo = WebInfo;
+			await Downloader.DownloadSong();
+
+			Parser = Downloader.Parser;
+			//if ( Downloader.Chart.Notes != null && Downloader.Info.SongName != null )
+			//{
+			Parser.PlaySong( Downloader.Chart, Downloader.Info, Downloader.AudioPath );
+			//}
+		}
+		catch
+		{
+			Log.Warning("Something went wrong, try another song");
+		}
 	}
 }

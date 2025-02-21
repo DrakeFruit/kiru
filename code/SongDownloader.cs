@@ -85,15 +85,37 @@ public sealed class SongDownloader : Component
 			catch (Exception e)
 			{
 				Log.Error( "Error downloading song " + e.Message  );
+				return;
 			}
 		}
 		
 		var diffSelection = WebInfo.Versions.First().Difficulties.Last();
 		var songInfoPath = FileSystem.Data.FindFile( SongFolder ).First( i => i.ToLower().Contains( "info" ) );
-        Info = SongInfo.Read( await FileSystem.Data.ReadAllTextAsync( SongFolder + $"/{songInfoPath}" ) );
-        InstalledSongs.Add(Info.SongName);
+
+		try
+		{
+			Info = SongInfo.Read( await FileSystem.Data.ReadAllTextAsync( SongFolder + $"/{songInfoPath}" ) );
+		}
+		catch
+		{
+			Log.Warning( "Song Info not found" );
+			return;
+		}
+
+		try
+		{
+			InstalledSongs.Add( Info.SongName );
+		}
+		catch
+		{
+			Game.IsPaused = true;
+			Log.Warning( "Couldn't add song to install list" );
+			return;
+		}
+		
         var songFilePath = FileSystem.Data.FindFile(SongFolder).First( i => i.ToLower().Contains(diffSelection.Name.ToLower()) );
         songFilePath = SongFolder + $"/{songFilePath}";
+        
         try
         {
 	        Chart = SongChart.Read( await FileSystem.Data.ReadAllTextAsync( songFilePath ) );
@@ -101,15 +123,19 @@ public sealed class SongDownloader : Component
         catch
         { 
 	        Log.Warning( "Chart does not exist" );
+	        return;
         }
         if ( Chart?.Notes == null )
         {
 	        Log.Warning( "No notes found" );
+	        return;
         }
         if ( Info.BPM <= 0 )
         {
 	        Log.Warning( "Info Error" );
+	        return;
         }
+        
         AudioPath = SongFolder + "/" + FileSystem.Data.FindFile( SongFolder ).First( x => x.EndsWith( ".ogg" ) );
 	}
 }

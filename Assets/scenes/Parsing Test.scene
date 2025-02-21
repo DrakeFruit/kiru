@@ -539,11 +539,11 @@
           ],
           "Children": [
             {
-              "__guid": "2905f3ac-7395-4f06-9aee-0c885c0fa8d4",
+              "__guid": "79d8f62c-d39d-448d-bb61-ade53f681819",
               "Flags": 0,
               "Name": "saber (1)",
-              "Position": "32,-20.00001,-28",
-              "Rotation": "-0.3535534,-0.3535534,0.1464466,0.8535535",
+              "Position": "79.31993,-19.81261,-16.93589",
+              "Rotation": "0.02933954,-0.127186,0.222856,0.9660737",
               "Enabled": true,
               "__Prefab": "prefabs/saber.prefab",
               "__PrefabVariables": {
@@ -609,6 +609,7 @@
       "__guid": "9940c5d5-9261-4aad-b4f8-b7effdc23e9c",
       "Flags": 0,
       "Name": "Player",
+      "Tags": "player",
       "__Prefab": "prefabs/kiruplayer.prefab",
       "__PrefabVariables": {}
     },
